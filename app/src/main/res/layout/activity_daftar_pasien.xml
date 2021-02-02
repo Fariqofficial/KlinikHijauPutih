@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E9FFE1"
+    tools:context=".DaftarPasienActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tolbarDaftarPasien"
+        android:background="@color/color_main"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"/>
+
+    <ScrollView
+        android:layout_below="@id/tolbarDaftarPasien"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_marginTop="30dp"
+                android:id="@+id/txt_noKtp"
+                android:textColor="@android:color/black"
+                android:text="Nomor KTP :"
+                android:layout_marginLeft="8dp"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/KtpPasien"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="3dp"
+                android:layout_below="@id/txt_noKtp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Masukan No KTP"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/txt_namaPasien"
+                android:textColor="@android:color/black"
+                android:layout_below="@id/KtpPasien"
+                android:text="Nama Pasien :"
+                android:layout_marginLeft="8dp"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/namaPasien"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="3dp"
+                android:layout_below="@id/txt_namaPasien"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_account"
+                android:drawablePadding="8dp"
+                android:hint="Masukan Nama Pasien"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/txt_alamatPasien"
+                android:textColor="@android:color/black"
+                android:layout_below="@id/namaPasien"
+                android:text="Alamat :"
+                android:layout_marginLeft="8dp"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/alamatPasien"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="3dp"
+                android:layout_below="@id/txt_alamatPasien"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_home"
+                android:drawablePadding="10dp"
+                android:hint="Masukan Alamat"
+                android:maxLines="2"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/txt_jenkel"
+                android:textColor="@android:color/black"
+                android:layout_below="@id/alamatPasien"
+                android:text="Jenis Kelamin :"
+                android:layout_marginLeft="8dp"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <Spinner
+                android:id="@+id/spinnerJenkel"
+                android:layout_marginTop="4dp"
+                android:layout_below="@id/txt_jenkel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/txt_umur"
+                android:textColor="@android:color/black"
+                android:layout_below="@id/spinnerJenkel"
+                android:text="Umur :"
+                android:layout_marginLeft="8dp"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/umur"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="3dp"
+                android:layout_below="@id/txt_umur"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="...."/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/txt_status"
+                android:textColor="@android:color/black"
+                android:layout_below="@id/umur"
+                android:text="Status :"
+                android:layout_marginLeft="8dp"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <Spinner
+                android:id="@+id/spinnerStatus"
+                android:layout_marginTop="4dp"
+                android:layout_below="@id/txt_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/txt_telpPasien"
+                android:textColor="@android:color/black"
+                android:layout_below="@id/spinnerStatus"
+                android:text="No. Telp :"
+                android:layout_marginLeft="8dp"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/telpPasien"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="3dp"
+                android:layout_below="@id/txt_telpPasien"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_phone"
+                android:drawablePadding="8dp"
+                android:hint="Masukan No. Telp"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/txt_namaIbu"
+                android:textColor="@android:color/black"
+                android:layout_below="@id/telpPasien"
+                android:text="Nama Ibu :"
+                android:layout_marginLeft="8dp"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/ibuPasien"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="3dp"
+                android:layout_below="@id/txt_namaIbu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_family"
+                android:drawablePadding="8dp"
+                android:hint="Masukan Nama Ibu"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/txt_namaPasangan"
+                android:textColor="@android:color/black"
+                android:layout_below="@id/ibuPasien"
+                android:text="Nama Pasangan :"
+                android:layout_marginLeft="8dp"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/pasanganPasien"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="3dp"
+                android:layout_below="@id/txt_namaPasangan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_family"
+                android:drawablePadding="8dp"
+                android:hint="Jika Tidak Ada Boleh Diisi '-' "/>
+
+                    <RelativeLayout
+                    android:id="@+id/relayBtn"
+                    android:gravity="center"
+                    android:layout_below="@id/pasanganPasien"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:clickable="true"
+                        android:id="@+id/daftarPasien"
+                        android:layout_width="210dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="4dp"
+                        android:background="@drawable/btn_shape_green"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Daftar"
+                        android:textAllCaps="false"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/white"/>
+
+                </RelativeLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

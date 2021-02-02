@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E9FFE1"
+    tools:context=".TambahRekamMedisDokterActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarTambahRekMedis"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/color_main"/>
+
+    <ScrollView
+        android:layout_below="@id/toolbarTambahRekMedis"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_marginTop="30dp"
+                android:id="@+id/txt_idDokter"
+                android:textColor="@android:color/black"
+                android:text="ID Dokter :"
+                android:layout_marginLeft="8dp"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/id_dokter"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="3dp"
+                android:layout_below="@id/txt_idDokter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Masukan ID Dokter"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/txt_idPasien"
+                android:textColor="@android:color/black"
+                android:layout_below="@id/id_dokter"
+                android:text="ID Pasien :"
+                android:layout_marginLeft="8dp"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/id_pasien"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="3dp"
+                android:layout_below="@id/txt_idPasien"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Masukan ID Pasien"
+                android:drawablePadding="8dp"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/txt_anastesa"
+                android:textColor="@android:color/black"
+                android:layout_below="@id/id_pasien"
+                android:text="Anastesa :"
+                android:layout_marginLeft="8dp"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/anastesa"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="3dp"
+                android:layout_below="@id/txt_anastesa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10dp"
+                android:hint="Masukan Anastesa"
+                android:maxLines="2"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/txt_diagnosa"
+                android:textColor="@android:color/black"
+                android:layout_below="@id/anastesa"
+                android:text="Diagnosa :"
+                android:layout_marginLeft="8dp"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/diagnosa"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="3dp"
+                android:layout_below="@id/txt_diagnosa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Masukan Diagnosa"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/txt_terapi"
+                android:textColor="@android:color/black"
+                android:layout_below="@id/diagnosa"
+                android:text="Terapi :"
+                android:layout_marginLeft="8dp"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/terapi"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="3dp"
+                android:layout_below="@id/txt_terapi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="8dp"
+                android:hint="Masukan Terapi"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/txt_resep"
+                android:textColor="@android:color/black"
+                android:layout_below="@id/terapi"
+                android:text="Resep :"
+                android:layout_marginLeft="8dp"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/resep"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="3dp"
+                android:layout_below="@id/txt_resep"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="8dp"
+                android:hint="Masukan Resep"/>
+
+            <RelativeLayout
+                android:id="@+id/relayBtn"
+                android:gravity="center"
+                android:layout_below="@id/resep"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:clickable="true"
+                    android:id="@+id/tambahRekMedisDokter"
+                    android:layout_width="210dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="4dp"
+                    android:background="@drawable/btn_shape_green"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Add"
+                    android:textAllCaps="false"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

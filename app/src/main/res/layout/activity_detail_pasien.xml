@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E9FFE1"
+    tools:context=".DetailPasienActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarDetailPasien"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/color_main"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvDetailPasien"
+        android:layout_below="@id/toolbarDetailPasien"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="385dp"
+        app:cardElevation="3dp"
+        app:cardCornerRadius="8dp"
+        android:layout_margin="8dp"
+        android:backgroundTint="@color/color_main">
+
+        <TextView
+            android:id="@+id/namaPasien"
+            android:layout_marginTop="15dp"
+            android:textColor="@android:color/white"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nama Pasien"/>
+
+        <TableRow
+            android:id="@+id/trNomorId"
+            android:layout_marginTop="65dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_marginLeft="6dp"
+                android:id="@+id/txt_idPasien"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ID Pasien :"/>
+
+            <TextView
+                android:layout_marginLeft="8dp"
+                android:id="@+id/idPasien"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nomor ID"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginTop="100dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_marginLeft="6dp"
+                android:id="@+id/txt_noKtp"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No. KTP :"/>
+
+            <TextView
+                android:layout_marginLeft="16dp"
+                android:id="@+id/ktpPasien"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nomor KTP"/>
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_marginTop="135dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_marginLeft="6dp"
+                android:id="@+id/txt_alamat"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alamat :"/>
+
+            <TextView
+                android:layout_marginLeft="24dp"
+                android:id="@+id/alamatPasien"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama Alamat"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginTop="170dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_marginLeft="6dp"
+                android:id="@+id/txt_jenkel"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jenis Kelamin :"/>
+
+            <TextView
+                android:layout_marginLeft="8dp"
+                android:id="@+id/jenkel"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jenis Kelamin"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginTop="205dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_marginLeft="6dp"
+                android:id="@+id/txt_umur"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Umur :"/>
+
+            <TextView
+                android:layout_marginLeft="40dp"
+                android:id="@+id/umur"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Umur"/>
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_marginTop="240dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_marginLeft="6dp"
+                android:id="@+id/txt_status"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Status :"/>
+
+            <TextView
+                android:layout_marginLeft="30dp"
+                android:id="@+id/status"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Status Pernikahan"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginTop="275dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_marginLeft="6dp"
+                android:id="@+id/txt_telpPasien"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No. Telp :"/>
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:id="@+id/telpPasien"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No. Telp"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginTop="310dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_marginLeft="6dp"
+                android:id="@+id/txt_namaIbu"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama Ibu :"/>
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:id="@+id/ibuPasien"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ibu Pasien"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_marginTop="345dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_marginLeft="6dp"
+                android:id="@+id/txt_namaPasangan"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama Pasangan :"/>
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:id="@+id/pasanganPasien"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"/>
+
+        </TableRow>
+
+    </androidx.cardview.widget.CardView>
+
+    <TableRow
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/cvDetailPasien"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/hapusDtlPasien"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="4dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:layout_marginTop="10dp"
+            android:text="Hapus"
+            android:background="@drawable/btn_shape_orange"
+            android:textAllCaps="false"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"/>
+
+        <Button
+            android:id="@+id/editDtlPasien"
+            android:clickable="true"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="4dp"
+            android:paddingLeft="16dp"
+            android:layout_marginLeft="8dp"
+            android:paddingRight="16dp"
+            android:layout_marginTop="10dp"
+            android:text="Edit"
+            android:background="@drawable/btn_shape_green"
+            android:textAllCaps="false"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"/>
+
+    </TableRow>
+
+</RelativeLayout>

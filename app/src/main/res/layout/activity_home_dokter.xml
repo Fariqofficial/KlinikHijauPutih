@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E9FFE1"
+    tools:context=".HomeDokterActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarHomeDok"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/color_main"/>
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:layout_below="@id/toolbarHomeDok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/menuRekamMedis"
+                android:clickable="true"
+                android:backgroundTint="@color/color_main"
+                android:layout_marginTop="35dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_below="@id/toolbarPendaftaran"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                app:cardElevation="3dp"
+                app:cardCornerRadius="8dp">
+
+                <TextView
+                    android:layout_marginTop="30dp"
+                    android:textSize="25sp"
+                    android:gravity="center"
+                    android:text="Rekam Medis"
+                    android:textColor="@android:color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+</RelativeLayout>

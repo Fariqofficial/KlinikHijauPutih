@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E9FFE1"
+    tools:context=".TambahJadwalActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tolbarAddJadwal"
+        android:background="@color/color_main"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"/>
+
+    <TextView
+        android:layout_marginTop="40dp"
+        android:id="@+id/txt_idDokter"
+        android:textColor="@android:color/black"
+        android:layout_below="@id/tolbarAddJadwal"
+        android:text="ID Dokter :"
+        android:layout_marginLeft="8dp"
+        android:textSize="16sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/id_dokter"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="3dp"
+        android:layout_below="@id/txt_idDokter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Masukan ID Dokter"/>
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/txt_hariPraktek"
+        android:textColor="@android:color/black"
+        android:layout_below="@id/id_dokter"
+        android:text="Hari :"
+        android:layout_marginLeft="8dp"
+        android:textSize="16sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/hariPraktek"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="3dp"
+        android:layout_below="@id/txt_hariPraktek"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Masukan Hari Dokter Praktek"/>
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/txt_keterangan"
+        android:textColor="@android:color/black"
+        android:layout_below="@id/hariPraktek"
+        android:text="Keterangan :"
+        android:layout_marginLeft="8dp"
+        android:textSize="16sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/keterangan"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="3dp"
+        android:layout_below="@id/txt_keterangan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Masukan Keterangan"/>
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/txt_id_staff"
+        android:textColor="@android:color/black"
+        android:layout_below="@id/keterangan"
+        android:text="ID Staff :"
+        android:layout_marginLeft="8dp"
+        android:textSize="16sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/idStaff"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="3dp"
+        android:layout_below="@id/txt_id_staff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Masukan ID Staf"/>
+
+    <RelativeLayout
+        android:id="@+id/relayBtn"
+        android:gravity="center"
+        android:layout_below="@id/idStaff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:clickable="true"
+            android:id="@+id/tambahJadwal"
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/btn_shape_green"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:layout_marginTop="20dp"
+            android:text="Add"
+            android:textAllCaps="false"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>
