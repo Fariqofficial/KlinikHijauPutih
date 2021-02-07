@@ -7,14 +7,7 @@
     android:background="#E9FFE1"
     tools:context=".LoginStaffActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/tolbarLoginStaff"
-        android:background="@color/color_main"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"/>
-
     <RelativeLayout
-        android:layout_below="@id/tolbarLoginStaff"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -97,10 +90,10 @@
         </RelativeLayout>
 
         <TextView
-            android:id="@+id/batalkan"
+            android:id="@+id/buatAkun"
             android:gravity="center"
             android:layout_marginTop="8dp"
-            android:text="Batalkan"
+            android:text="Buat Akun"
             android:clickable="true"
             android:textSize="19sp"
             android:textStyle="bold"

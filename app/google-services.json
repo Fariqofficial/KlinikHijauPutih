@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "324633698226",
+    "firebase_url": "https://klinikhijauputih-c27a2-default-rtdb.firebaseio.com",
+    "project_id": "klinikhijauputih-c27a2",
+    "storage_bucket": "klinikhijauputih-c27a2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:324633698226:android:2366f4376c3fe8410aceab",
+        "android_client_info": {
+          "package_name": "ac.id.pradita.klinikhijauputih"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "324633698226-9r7tdbor8f32deph6n5qsaig3iov73fo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ac.id.pradita.klinikhijauputih",
+            "certificate_hash": "9c5aaf8cff9d3858ceda95a1b8c06f3c8bd052cf"
+          }
+        },
+        {
+          "client_id": "324633698226-a1lqh7n03k33dtt7e8igdqb3uflmnt3t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVkuH32697uK620UtTB38kgNJ0ZJzu64g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "324633698226-a1lqh7n03k33dtt7e8igdqb3uflmnt3t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

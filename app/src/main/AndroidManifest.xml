@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ac.id.pradita.klinikhijauputih">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KlinikHijauPutih">
-        <activity android:name=".DetailRekamMedisDokterActivity"></activity>
+        <activity android:name=".BuatAkunStaffActivity"/>
+        <activity android:name=".DetailRekamMedisDokterActivity" />
         <activity android:name=".EditRekamMedisDokterActivity" />
         <activity android:name=".TambahRekamMedisDokterActivity" />
         <activity android:name=".HomeDokterActivity" />
@@ -19,7 +22,14 @@
         <activity android:name=".DetailDokterActivity" />
         <activity android:name=".DetailPasienActivity" />
         <activity android:name=".RekamMedisActivity" />
-        <activity android:name=".DaftarPasienActivity" />
+        <activity android:name=".DaftarPasienActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
         <activity android:name=".DaftarDokterActivity" />
         <activity android:name=".PasienActivity" />
         <activity android:name=".DokterActivity" />
@@ -27,19 +37,8 @@
         <activity android:name=".LoginStaffActivity" />
         <activity android:name=".LoginDokterActivity" />
         <activity android:name=".PendaftaranActivity" />
-        <activity android:name=".HomeActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".HomeActivity"/>
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 
