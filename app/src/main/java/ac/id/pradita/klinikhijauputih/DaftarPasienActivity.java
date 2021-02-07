@@ -1,14 +1,10 @@
 package ac.id.pradita.klinikhijauputih;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Patterns;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -17,16 +13,14 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
-
-import static com.google.common.reflect.Reflection.initialize;
 
 public class DaftarPasienActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     EditText no_ktp, nama_pasien, alamat_rumah, umur, no_telp, nama_ibu, nama_pasangan;
@@ -139,9 +133,10 @@ public class DaftarPasienActivity extends AppCompatActivity implements AdapterVi
         dialog.show();
         dialog.setMessage("Mohon Tunggu..");
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Pasien").child(user.getUid());
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Pasien");
 
         HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("id_pasien", reference.push().getKey());
         hashMap.put("no_ktp", nomorKTP);
         hashMap.put("nama", namaPasien);
         hashMap.put("alamat", alamatPasien);
@@ -152,8 +147,7 @@ public class DaftarPasienActivity extends AppCompatActivity implements AdapterVi
         hashMap.put("nama_ibu", ibuPasien);
         hashMap.put("nama_pasangan", pasanganPasien);
 
-
-        reference.setValue(hashMap).addOnCompleteListener(task -> {
+        reference.push().setValue(hashMap).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 Toast.makeText(getApplicationContext(), "Berhasil Mendaftarkan Pasien!", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(getApplicationContext(), HomeActivity.class);

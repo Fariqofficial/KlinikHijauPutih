@@ -29,7 +29,6 @@ public class HomeActivity extends AppCompatActivity {
     ProgressDialog dialog;
     FirebaseUser user;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

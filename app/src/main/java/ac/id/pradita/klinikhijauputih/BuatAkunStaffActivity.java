@@ -70,14 +70,14 @@ public class BuatAkunStaffActivity extends AppCompatActivity {
         progressDialog.setMessage("Mohon Tunggu..");
         auth.createUserWithEmailAndPassword(emailStaff, passwordStaff)
                 .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()){
+                    if (task.isSuccessful()) {
                         FirebaseUser staff = auth.getCurrentUser();
-                        assert  staff != null;
+                        assert staff != null;
 
                         String staffId = staff.getUid();
                         reference = FirebaseDatabase.getInstance().getReference("Staff").child(staffId);
 
-                        HashMap<String,String> hashMap = new HashMap<>();
+                        HashMap<String, String> hashMap = new HashMap<>();
                         hashMap.put("id_staff", staffId);
                         hashMap.put("nama", namaStaff);
                         hashMap.put("alamat", alamatStaff);
@@ -87,15 +87,15 @@ public class BuatAkunStaffActivity extends AppCompatActivity {
                         hashMap.put("password", passwordStaff);
 
                         reference.setValue(hashMap).addOnCompleteListener(task1 -> {
-                                    Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-                                    startActivity(intent);
-                                    progressDialog.dismiss();
+                            Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                            startActivity(intent);
+                            progressDialog.dismiss();
 
                         });
-                            } else {
-                                Toast.makeText(getApplicationContext(), "Buat akun gagal!", Toast.LENGTH_SHORT).show();
-                                progressDialog.dismiss();
-                            }
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Buat akun gagal!", Toast.LENGTH_SHORT).show();
+                        progressDialog.dismiss();
+                    }
 
                 });
     }
@@ -109,7 +109,7 @@ public class BuatAkunStaffActivity extends AppCompatActivity {
         passwordStaff = password_staff.getText().toString().trim();
     }
 
-    public boolean validate(){
+    public boolean validate() {
         boolean valid = true;
         if (namaStaff.isEmpty()) {
             nama_staff.setError("Harap Masukkan Nama Staff!");
@@ -134,7 +134,7 @@ public class BuatAkunStaffActivity extends AppCompatActivity {
         }
         if (passwordStaff.isEmpty() || passwordStaff.length() < 8) {
             password_staff.setError("Harap Masukkan Password Anda Lebih Dari 8 Karakter");
-         }
+        }
         return valid;
     }
 }

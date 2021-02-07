@@ -22,19 +22,18 @@
         <activity android:name=".DetailDokterActivity" />
         <activity android:name=".DetailPasienActivity" />
         <activity android:name=".RekamMedisActivity" />
-        <activity android:name=".DaftarPasienActivity">
+        <activity android:name=".DaftarPasienActivity"/>
+        <activity android:name=".DaftarDokterActivity" />
+        <activity android:name=".PasienActivity" />
+        <activity android:name=".DokterActivity" />
+        <activity android:name=".TambahJadwalActivity" />
+        <activity android:name=".LoginStaffActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-        <activity android:name=".DaftarDokterActivity" />
-        <activity android:name=".PasienActivity" />
-        <activity android:name=".DokterActivity" />
-        <activity android:name=".TambahJadwalActivity" />
-        <activity android:name=".LoginStaffActivity" />
         <activity android:name=".LoginDokterActivity" />
         <activity android:name=".PendaftaranActivity" />
         <activity android:name=".HomeActivity"/>
