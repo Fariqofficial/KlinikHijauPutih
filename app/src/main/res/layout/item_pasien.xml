@@ -1,73 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#E9FFE1">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cvItemPasienr"
-        android:clickable="true"
-        android:backgroundTint="#99F3BD"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginRight="5dp"
+    android:backgroundTint="#99F3BD"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="3dp">
+
+    <TextView
+        android:id="@+id/nama_pasien"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="10dp"
+        android:text="Nama Pasien"
+        android:textColor="@android:color/black"
+        android:textSize="22sp" />
+
+    <TableRow
         android:layout_width="match_parent"
-        android:layout_height="90dp"
-        app:cardElevation="3dp"
-        app:cardCornerRadius="8dp">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp">
 
         <TextView
-            android:id="@+id/nama_pasien"
-            android:layout_marginTop="10dp"
-            android:textColor="@android:color/black"
-            android:textSize="22sp"
-            android:layout_marginLeft="8dp"
+            android:id="@+id/jenkel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nama Pasien" />
+            android:layout_marginLeft="8dp"
+            android:text="Jenis Kelamin"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
 
-        <TableRow
-            android:layout_marginTop="50dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="|"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
 
-            <TextView
-                android:layout_marginLeft="8dp"
-                android:id="@+id/jenkel"
-                android:textColor="@android:color/black"
-                android:textSize="20sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Jenis Kelamin"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="Umur :"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
 
-            <TextView
-                android:layout_marginLeft="5dp"
-                android:textColor="@android:color/black"
-                android:textSize="20sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="|"/>
+        <TextView
+            android:id="@+id/umur"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:text="Umur Pasien"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
 
-            <TextView
-                android:layout_marginLeft="5dp"
-                android:textColor="@android:color/black"
-                android:textSize="20sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Umur :"/>
+    </TableRow>
 
-            <TextView
-                android:id="@+id/umur"
-                android:layout_marginLeft="6dp"
-                android:textColor="@android:color/black"
-                android:textSize="20sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Umur Pasien"/>
-
-        </TableRow>
-
-    </androidx.cardview.widget.CardView>
-
-</RelativeLayout>
+</androidx.cardview.widget.CardView>
