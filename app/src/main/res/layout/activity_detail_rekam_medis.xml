@@ -232,7 +232,8 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/print"
-        android:src="@drawable/ic_file"
+        android:src="@drawable/ic_file_white"
+        android:clickable="true"
         android:backgroundTint="@color/color_main"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"

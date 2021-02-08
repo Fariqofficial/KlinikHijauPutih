@@ -7,150 +7,168 @@
     android:background="#E9FFE1"
     tools:context=".BuatAkunStaffActivity">
 
-    <TextView
-        android:layout_marginTop="40dp"
-        android:id="@+id/txt_namaStaff"
-        android:textColor="@android:color/black"
-        android:text="Nama Staff :"
-        android:layout_marginLeft="8dp"
-        android:textSize="16sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <EditText
-        android:id="@+id/nama_staff"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="3dp"
-        android:layout_below="@id/txt_namaStaff"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Masukan Nama Staff"/>
-
-
-    <TextView
-        android:layout_below="@id/nama_staff"
-        android:layout_marginTop="10dp"
-        android:id="@+id/txt_emailStaff"
-        android:textColor="@android:color/black"
-        android:text="Email Staff :"
-        android:layout_marginLeft="8dp"
-        android:textSize="16sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <EditText
-        android:id="@+id/email_staff"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="3dp"
-        android:layout_below="@id/txt_emailStaff"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Masukan Nama Staff"/>
-
-    <TextView
-        android:layout_marginTop="10dp"
-        android:id="@+id/txt_alamatStaff"
-        android:textColor="@android:color/black"
-        android:layout_below="@id/email_staff"
-        android:text="Alamat :"
-        android:layout_marginLeft="8dp"
-        android:textSize="16sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <EditText
-        android:id="@+id/alamatStaff"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="3dp"
-        android:layout_below="@id/txt_alamatStaff"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Masukan Alamat Staff"/>
-
-    <TextView
-        android:layout_marginTop="10dp"
-        android:id="@+id/txt_nohp"
-        android:textColor="@android:color/black"
-        android:layout_below="@id/alamatStaff"
-        android:text="No. Handphone :"
-        android:layout_marginLeft="8dp"
-        android:textSize="16sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <EditText
-        android:id="@+id/hp_staff"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="3dp"
-        android:layout_below="@id/txt_nohp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Masukan No. Handphone"/>
-
-    <TextView
-        android:layout_marginTop="10dp"
-        android:id="@+id/txt_usernameStaff"
-        android:textColor="@android:color/black"
-        android:layout_below="@id/hp_staff"
-        android:text="Username :"
-        android:layout_marginLeft="8dp"
-        android:textSize="16sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <EditText
-        android:id="@+id/username_staff"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="3dp"
-        android:layout_below="@id/txt_usernameStaff"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Masukan Username"/>
-
-    <TextView
-        android:layout_marginTop="10dp"
-        android:id="@+id/txt_passStaff"
-        android:textColor="@android:color/black"
-        android:layout_below="@id/username_staff"
-        android:text="Password :"
-        android:layout_marginLeft="8dp"
-        android:textSize="16sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <EditText
-        android:id="@+id/password_staff"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="3dp"
-        android:layout_below="@id/txt_passStaff"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Masukan Pass"/>
-
-    <RelativeLayout
-        android:id="@+id/relayBtn"
-        android:gravity="center"
-        android:layout_below="@id/password_staff"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <Button
-            android:clickable="true"
-            android:id="@+id/buatAkunStaff"
-            android:layout_width="210dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="4dp"
-            android:background="@drawable/btn_shape_green"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:layout_marginTop="20dp"
-            android:text="Buat Akun"
-            android:textAllCaps="false"
-            android:textSize="17sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/white"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    </RelativeLayout>
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/txt_namaStaff"
+                android:textColor="@android:color/black"
+                android:text="Nama Staff :"
+                android:layout_marginLeft="8dp"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/nama_staff"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="3dp"
+                android:layout_below="@id/txt_namaStaff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="Masukan Nama Staff"/>
+
+
+            <TextView
+                android:layout_below="@id/nama_staff"
+                android:layout_marginTop="10dp"
+                android:id="@+id/txt_emailStaff"
+                android:textColor="@android:color/black"
+                android:text="Email Staff :"
+                android:layout_marginLeft="8dp"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/email_staff"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="3dp"
+                android:layout_below="@id/txt_emailStaff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:hint="Masukan Email Staff"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/txt_alamatStaff"
+                android:textColor="@android:color/black"
+                android:layout_below="@id/email_staff"
+                android:text="Alamat :"
+                android:layout_marginLeft="8dp"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/alamatStaff"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="3dp"
+                android:layout_below="@id/txt_alamatStaff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPostalAddress"
+                android:hint="Masukan Alamat Staff"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/txt_nohp"
+                android:textColor="@android:color/black"
+                android:layout_below="@id/alamatStaff"
+                android:text="No. Handphone :"
+                android:layout_marginLeft="8dp"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/hp_staff"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="3dp"
+                android:layout_below="@id/txt_nohp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="Masukan No. Handphone"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/txt_usernameStaff"
+                android:textColor="@android:color/black"
+                android:layout_below="@id/hp_staff"
+                android:text="Username :"
+                android:layout_marginLeft="8dp"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/username_staff"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="3dp"
+                android:layout_below="@id/txt_usernameStaff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="Masukan Username"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/txt_passStaff"
+                android:textColor="@android:color/black"
+                android:layout_below="@id/username_staff"
+                android:text="Password :"
+                android:layout_marginLeft="8dp"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/password_staff"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="3dp"
+                android:layout_below="@id/txt_passStaff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:hint="Masukan Pass"/>
+
+            <RelativeLayout
+                android:id="@+id/relayBtn"
+                android:gravity="center"
+                android:layout_below="@id/password_staff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:clickable="true"
+                    android:id="@+id/buatAkunStaff"
+                    android:layout_width="175dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="4dp"
+                    android:background="@drawable/btn_shape_green"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Buat Akun"
+                    android:textAllCaps="false"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
 
 </RelativeLayout>

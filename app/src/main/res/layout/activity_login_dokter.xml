@@ -7,14 +7,7 @@
     android:background="#E9FFE1"
     tools:context=".LoginDokterActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/tolbarLoginDokter"
-        android:background="@color/color_main"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"/>
-
     <RelativeLayout
-        android:layout_below="@id/tolbarLoginDokter"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -22,36 +15,38 @@
             android:id="@+id/imgLogo"
             android:src="@drawable/logo"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="120dp"
+            android:layout_centerHorizontal="true"
             android:layout_width="175dp"
             android:layout_height="150dp"/>
 
         <TextView
-            android:id="@+id/txt_username"
+            android:id="@+id/txt_email"
             android:textColor="@android:color/black"
             android:layout_below="@id/imgLogo"
-            android:text="Username :"
+            android:text="Email :"
             android:layout_marginLeft="16dp"
             android:textSize="16sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <EditText
-            android:id="@+id/edt_username"
+            android:id="@+id/edt_emailDokter"
             android:layout_marginTop="8dp"
             android:layout_marginLeft="3dp"
-            android:drawableLeft="@drawable/ic_account"
-            android:layout_below="@id/txt_username"
+            android:drawableLeft="@drawable/ic_email"
+            android:layout_below="@id/txt_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawablePadding="10dp"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
             android:hint="Masukan Username"/>
 
 
         <TextView
             android:id="@+id/txt_pass"
             android:textColor="@android:color/black"
-            android:layout_below="@id/edt_username"
+            android:layout_below="@id/edt_emailDokter"
             android:text="Password :"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="15dp"
@@ -68,6 +63,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawablePadding="15dp"
+            android:maxLines="1"
+            android:inputType="textPassword"
             android:hint="Masukan Password"/>
 
         <RelativeLayout

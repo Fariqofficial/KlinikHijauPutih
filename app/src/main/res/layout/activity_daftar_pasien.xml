@@ -34,6 +34,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
+                android:drawablePadding="15dp"
+                android:drawableLeft="@drawable/ic_ktp"
                 android:hint="Masukan No KTP"/>
 
             <TextView
@@ -56,7 +58,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_account"
-                android:drawablePadding="8dp"
+                android:drawablePadding="5dp"
                 android:hint="Masukan Nama Pasien"/>
 
             <TextView

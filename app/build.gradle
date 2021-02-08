@@ -50,6 +50,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-storage:19.2.1'
     implementation 'com.google.firebase:firebase-firestore:22.0.2'
     implementation 'com.firebaseui:firebase-ui:0.6.0'
+    implementation 'com.firebaseui:firebase-ui-database:6.2.1'
 }
 
 apply plugin: 'com.google.gms.google-services'

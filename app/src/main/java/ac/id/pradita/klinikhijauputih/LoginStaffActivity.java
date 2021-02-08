@@ -58,11 +58,11 @@ public class LoginStaffActivity extends AppCompatActivity {
         boolean is_valid = true;
 
         if (email.isEmpty()) {
-            emailStaff.setError("Ups, tidak boleh kosong");
+            emailStaff.setError("Email Tidak boleh Kosong!");
             is_valid = false;
         }
         if (password.isEmpty()) {
-            passwordStaff.setError("Ups, tidak boleh kosong");
+            passwordStaff.setError("Password Tidak Boleh Kosong");
             is_valid = false;
         }
         return is_valid;
@@ -78,7 +78,7 @@ public class LoginStaffActivity extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 } else {
-                    Toast.makeText(getApplicationContext(), "Ups, data tidak ditemukan. Periksa kembali email dan password Anda!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Data Tidak Ditemukan. Periksa Kembali Email dan Password Anda!", Toast.LENGTH_SHORT).show();
                     progressBar.setVisibility(View.GONE);
                 }
             }

@@ -69,7 +69,6 @@ public class DaftarPasienActivity extends AppCompatActivity implements AdapterVi
         status.setOnItemSelectedListener(this);
         status.setAdapter(adapterStatus);
 
-        reference = FirebaseDatabase.getInstance().getReference();
 
         btn_daftar.setOnClickListener(v -> {
             daftarPasien();
@@ -80,7 +79,7 @@ public class DaftarPasienActivity extends AppCompatActivity implements AdapterVi
     private void daftarPasien() {
         initialize();
         if (!validate()) {
-            Toast.makeText(this, "Daftar menjadi peserta latihan gagal!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Gagal Mendaftarkan Pasien!", Toast.LENGTH_LONG).show();
         } else {
             daftarPasienSukses(nomorKTP, namaPasien, alamatPasien, umurPasien, noTelpPasien, ibuPasien, pasanganPasien);
         }
@@ -89,7 +88,7 @@ public class DaftarPasienActivity extends AppCompatActivity implements AdapterVi
     private boolean validate() {
         boolean valid = true;
         if (nomorKTP.isEmpty()) {
-            no_ktp.setError("Harap Masukkan Nomor KTP Dahulu!");
+            no_ktp.setError("Harap Masukkan Nomor KTP Pasien!");
             valid = false;
         }
         if (namaPasien.isEmpty()) {

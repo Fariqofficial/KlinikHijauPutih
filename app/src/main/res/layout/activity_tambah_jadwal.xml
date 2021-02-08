@@ -9,28 +9,28 @@
 
     <TextView
         android:layout_marginTop="40dp"
-        android:id="@+id/txt_idDokter"
+        android:id="@+id/txt_namaDokter"
         android:textColor="@android:color/black"
-        android:text="ID Dokter :"
+        android:text="Nama Dokter :"
         android:layout_marginLeft="8dp"
         android:textSize="16sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
     <EditText
-        android:id="@+id/id_dokter"
+        android:id="@+id/nama_dokter"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="3dp"
-        android:layout_below="@id/txt_idDokter"
+        android:layout_below="@id/txt_namaDokter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Masukan ID Dokter"/>
+        android:hint="Masukan Nama Dokter"/>
 
     <TextView
         android:layout_marginTop="10dp"
         android:id="@+id/txt_hariPraktek"
         android:textColor="@android:color/black"
-        android:layout_below="@id/id_dokter"
+        android:layout_below="@id/nama_dokter"
         android:text="Hari :"
         android:layout_marginLeft="8dp"
         android:textSize="16sp"
@@ -68,35 +68,35 @@
 
     <TextView
         android:layout_marginTop="10dp"
-        android:id="@+id/txt_id_staff"
+        android:id="@+id/txt_nama_staff"
         android:textColor="@android:color/black"
         android:layout_below="@id/keterangan"
-        android:text="ID Staff :"
+        android:text="Nama Staff :"
         android:layout_marginLeft="8dp"
         android:textSize="16sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
     <EditText
-        android:id="@+id/idStaff"
+        android:id="@+id/nama_staff"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="3dp"
-        android:layout_below="@id/txt_id_staff"
+        android:layout_below="@id/txt_nama_staff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Masukan ID Staf"/>
+        android:hint="Masukan Nama Staff"/>
 
     <RelativeLayout
         android:id="@+id/relayBtn"
         android:gravity="center"
-        android:layout_below="@id/idStaff"
+        android:layout_below="@id/nama_staff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <Button
             android:clickable="true"
             android:id="@+id/tambahJadwal"
-            android:layout_width="210dp"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="4dp"

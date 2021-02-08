@@ -16,7 +16,7 @@
                     android:id="@+id/cardViewStaff"
                     android:layout_margin="10dp"
                     android:layout_width="match_parent"
-                    android:layout_height="250dp"
+                    android:layout_height="220dp"
                     app:cardElevation="3dp"
                     app:cardCornerRadius="8dp"
                     android:backgroundTint="@color/color_main">
@@ -25,7 +25,7 @@
                         android:id="@+id/txt_selamat_dtg"
                         android:layout_marginTop="15dp"
                         android:textColor="@android:color/white"
-                        android:textSize="25sp"
+                        android:textSize="30sp"
                         android:gravity="center"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -34,19 +34,19 @@
                     <TextView
                         android:layout_marginLeft="5dp"
                         android:id="@+id/namaStaff"
-                        android:layout_marginTop="65dp"
+                        android:layout_marginTop="70dp"
                         android:textColor="@android:color/white"
-                        android:textSize="20sp"
+                        android:textSize="22sp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Nama Staff :"/>
 
                     <TextView
-                        android:layout_marginLeft="125dp"
+                        android:layout_marginLeft="140dp"
                         android:id="@+id/Staff"
-                        android:layout_marginTop="65dp"
+                        android:layout_marginTop="70dp"
                         android:textColor="@android:color/white"
-                        android:textSize="20sp"
+                        android:textSize="22sp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Staff"/>
@@ -54,20 +54,20 @@
                     <TextView
                         android:layout_marginLeft="5dp"
                         android:id="@+id/idStaff"
-                        android:layout_marginTop="100dp"
+                        android:layout_marginTop="120dp"
                         android:textColor="@android:color/white"
-                        android:textSize="20sp"
+                        android:textSize="22sp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="ID Staff :"/>
 
 
                     <TextView
-                        android:layout_marginLeft="85dp"
+                        android:layout_marginLeft="100dp"
                         android:id="@+id/nomorId"
-                        android:layout_marginTop="100dp"
+                        android:layout_marginTop="120dp"
                         android:textColor="@android:color/white"
-                        android:textSize="20sp"
+                        android:textSize="22sp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Nomor ID"/>
@@ -77,6 +77,7 @@
             </LinearLayout>
 
             <com.google.android.material.navigation.NavigationView
+                android:id="@+id/nav_view"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 app:menu="@menu/nav_menu"

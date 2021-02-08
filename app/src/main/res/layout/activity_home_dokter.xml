@@ -7,14 +7,8 @@
     android:background="#E9FFE1"
     tools:context=".HomeDokterActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarHomeDok"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/color_main"/>
 
     <androidx.drawerlayout.widget.DrawerLayout
-        android:layout_below="@id/toolbarHomeDok"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -29,7 +23,6 @@
                 android:layout_marginTop="35dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:layout_below="@id/toolbarPendaftaran"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 app:cardElevation="3dp"
