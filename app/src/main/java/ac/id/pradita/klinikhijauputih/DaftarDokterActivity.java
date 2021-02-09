@@ -127,7 +127,7 @@ public class DaftarDokterActivity extends AppCompatActivity {
         hashMap.put("email", email_dokter);
         hashMap.put("password", pass_dokter);
 
-        reference.push().setValue(hashMap).addOnCompleteListener(task -> {
+        databaseReference.setValue(hashMap).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 Toast.makeText(getApplicationContext(), "Berhasil Mendaftarkan Dokter!", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
