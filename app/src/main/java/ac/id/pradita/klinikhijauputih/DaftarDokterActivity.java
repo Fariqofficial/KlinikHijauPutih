@@ -3,6 +3,7 @@ package ac.id.pradita.klinikhijauputih;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +14,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
 
 import static com.google.common.reflect.Reflection.initialize;
 
@@ -96,6 +99,39 @@ public class DaftarDokterActivity extends AppCompatActivity {
         return valid;
     }
 
+    public void initialize(){
+        ktp_dokter = etNoKTP.getText().toString().trim();
+        nama_dokter = etNamaDokter.getText().toString().trim();
+        alamat_dokter = etAlamatDokter.getText().toString().trim();
+        poli_dokter = etPoliDokter.getText().toString().trim();
+        telp_dokter = etTelpDokter.getText().toString().trim();
+        username_dokter = etUsernameDokter.getText().toString().trim();
+        pass_dokter = etPasswordDokter.getText().toString().trim();
+    }
+
     private void daftarDokterBerhasil(String ktp_dokter, String nama_dokter, String alamat_dokter, String poli_dokter, String telp_dokter, String username_dokter, String pass_dokter) {
+        dialog.show();
+        dialog.setMessage("Mohon Tunggu..");
+
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Dokter");
+
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("id_dokter", reference.push().getKey());
+        hashMap.put("ktp", ktp_dokter);
+        hashMap.put("nama", nama_dokter);
+        hashMap.put("alamat", alamat_dokter);
+        hashMap.put("poli", poli_dokter);
+        hashMap.put("telpon", telp_dokter);
+        hashMap.put("username", username_dokter);
+        hashMap.put("password", pass_dokter);
+
+        reference.push().setValue(hashMap).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                Toast.makeText(getApplicationContext(), "Berhasil Mendaftarkan Dokter!", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                startActivity(intent);
+                dialog.dismiss();
+            }
+        });
     }
 }

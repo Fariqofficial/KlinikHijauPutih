@@ -1,5 +1,6 @@
 package ac.id.pradita.klinikhijauputih;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -13,6 +14,7 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.annotations.NotNull;
 
 import ac.id.pradita.klinikhijauputih.model.Pasien;
 
@@ -48,13 +50,16 @@ public class PasienActivity extends AppCompatActivity {
         FirebaseRecyclerAdapter<Pasien, ListPasienViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Pasien, ListPasienViewHolder>(
                 Pasien.class, R.layout.item_pasien, ListPasienViewHolder.class, mQuery) {
             @Override
-            protected void populateViewHolder(ListPasienViewHolder listPasienViewHolder, Pasien pasien, int i) {
+            protected void populateViewHolder(@NotNull ListPasienViewHolder listPasienViewHolder, Pasien pasien, int position) {
                 listPasienViewHolder.setNamaPasien(pasien.getNama());
+                listPasienViewHolder.setJenkel(pasien.getJenis_kelamin());
+                listPasienViewHolder.setUmurPasien(pasien.getUmur());
 
                 listPasienViewHolder.mView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         // tulis intent disini bwang
+                        startActivity(new Intent(getApplicationContext(), DetailPasienActivity.class));
 
                     }
                 });
@@ -65,7 +70,7 @@ public class PasienActivity extends AppCompatActivity {
 
     public static class ListPasienViewHolder extends RecyclerView.ViewHolder {
         View mView;
-        TextView tvNamaPasien;
+        TextView tvNamaPasien, tvJenkel, tvUmur;
 
         public ListPasienViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -75,6 +80,16 @@ public class PasienActivity extends AppCompatActivity {
         void setNamaPasien(String nama_pasien) {
             tvNamaPasien = mView.findViewById(R.id.nama_pasien);
             tvNamaPasien.setText(nama_pasien);
+        }
+
+        void setJenkel(String jenis_kelamin) {
+            tvJenkel = mView.findViewById(R.id.jenkel);
+            tvJenkel.setText(jenis_kelamin);
+        }
+
+        void setUmurPasien(String umur_pasien) {
+            tvUmur = mView.findViewById(R.id.umur);
+            tvUmur.setText(umur_pasien);
         }
     }
 }

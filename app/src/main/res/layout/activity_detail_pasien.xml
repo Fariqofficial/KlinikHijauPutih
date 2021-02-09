@@ -11,7 +11,7 @@
         android:id="@+id/cvDetailPasien"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="385dp"
+        android:layout_height="350dp"
         app:cardElevation="3dp"
         app:cardCornerRadius="8dp"
         android:layout_margin="8dp"
@@ -27,34 +27,8 @@
             android:layout_height="wrap_content"
             android:text="Nama Pasien"/>
 
-        <TableRow
-            android:id="@+id/trNomorId"
+        <RelativeLayout
             android:layout_marginTop="65dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_marginLeft="6dp"
-                android:id="@+id/txt_idPasien"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ID Pasien :"/>
-
-            <TextView
-                android:layout_marginLeft="8dp"
-                android:id="@+id/idPasien"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nomor ID"/>
-
-        </TableRow>
-
-        <TableRow
-            android:layout_marginTop="100dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -68,7 +42,8 @@
                 android:text="No. KTP :"/>
 
             <TextView
-                android:layout_marginLeft="16dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/txt_noKtp"
                 android:id="@+id/ktpPasien"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
@@ -76,11 +51,11 @@
                 android:layout_height="wrap_content"
                 android:text="Nomor KTP"/>
 
-        </TableRow>
+        </RelativeLayout>
 
 
-        <TableRow
-            android:layout_marginTop="135dp"
+        <RelativeLayout
+            android:layout_marginTop="100dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -94,7 +69,8 @@
                 android:text="Alamat :"/>
 
             <TextView
-                android:layout_marginLeft="24dp"
+                android:layout_toRightOf="@id/txt_alamat"
+                android:layout_marginLeft="15dp"
                 android:id="@+id/alamatPasien"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
@@ -102,10 +78,10 @@
                 android:layout_height="wrap_content"
                 android:text="Nama Alamat"/>
 
-        </TableRow>
+        </RelativeLayout>
 
-        <TableRow
-            android:layout_marginTop="170dp"
+        <RelativeLayout
+            android:layout_marginTop="135dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -119,6 +95,7 @@
                 android:text="Jenis Kelamin :"/>
 
             <TextView
+                android:layout_toRightOf="@id/txt_jenkel"
                 android:layout_marginLeft="8dp"
                 android:id="@+id/jenkel"
                 android:textColor="@android:color/white"
@@ -127,10 +104,10 @@
                 android:layout_height="wrap_content"
                 android:text="Jenis Kelamin"/>
 
-        </TableRow>
+        </RelativeLayout>
 
-        <TableRow
-            android:layout_marginTop="205dp"
+        <RelativeLayout
+            android:layout_marginTop="170dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -144,7 +121,8 @@
                 android:text="Umur :"/>
 
             <TextView
-                android:layout_marginLeft="40dp"
+                android:layout_toRightOf="@id/txt_umur"
+                android:layout_marginLeft="30dp"
                 android:id="@+id/umur"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
@@ -152,11 +130,11 @@
                 android:layout_height="wrap_content"
                 android:text="Umur"/>
 
-        </TableRow>
+        </RelativeLayout>
 
 
-        <TableRow
-            android:layout_marginTop="240dp"
+        <RelativeLayout
+            android:layout_marginTop="205dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -170,7 +148,8 @@
                 android:text="Status :"/>
 
             <TextView
-                android:layout_marginLeft="30dp"
+                android:layout_toRightOf="@id/txt_status"
+                android:layout_marginLeft="20dp"
                 android:id="@+id/status"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
@@ -178,10 +157,10 @@
                 android:layout_height="wrap_content"
                 android:text="Status Pernikahan"/>
 
-        </TableRow>
+        </RelativeLayout>
 
-        <TableRow
-            android:layout_marginTop="275dp"
+        <RelativeLayout
+            android:layout_marginTop="240dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -195,7 +174,8 @@
                 android:text="No. Telp :"/>
 
             <TextView
-                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/txt_telpPasien"
+                android:layout_marginLeft="8dp"
                 android:id="@+id/telpPasien"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
@@ -203,10 +183,10 @@
                 android:layout_height="wrap_content"
                 android:text="No. Telp"/>
 
-        </TableRow>
+        </RelativeLayout>
 
-        <TableRow
-            android:layout_marginTop="310dp"
+        <RelativeLayout
+            android:layout_marginTop="275dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -220,6 +200,7 @@
                 android:text="Nama Ibu :"/>
 
             <TextView
+                android:layout_toRightOf="@id/txt_namaIbu"
                 android:layout_marginLeft="10dp"
                 android:id="@+id/ibuPasien"
                 android:textColor="@android:color/white"
@@ -228,10 +209,10 @@
                 android:layout_height="wrap_content"
                 android:text="Ibu Pasien"/>
 
-        </TableRow>
+        </RelativeLayout>
 
-        <TableRow
-            android:layout_marginTop="345dp"
+        <RelativeLayout
+            android:layout_marginTop="310dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -245,6 +226,7 @@
                 android:text="Nama Pasangan :"/>
 
             <TextView
+                android:layout_toRightOf="@id/txt_namaPasangan"
                 android:layout_marginLeft="10dp"
                 android:id="@+id/pasanganPasien"
                 android:textColor="@android:color/white"
@@ -253,15 +235,16 @@
                 android:layout_height="wrap_content"
                 android:text="-"/>
 
-        </TableRow>
+        </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
 
     <TableRow
         android:gravity="center"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_below="@id/cvDetailPasien"
         android:layout_width="match_parent"
+        android:padding="8dp"
         android:layout_height="wrap_content">
 
         <Button
@@ -274,6 +257,7 @@
             android:paddingRight="16dp"
             android:layout_marginTop="10dp"
             android:text="Hapus"
+            android:layout_marginRight="10dp"
             android:background="@drawable/btn_shape_orange"
             android:textAllCaps="false"
             android:textSize="17sp"
@@ -288,7 +272,7 @@
             android:layout_gravity="center"
             android:layout_marginBottom="4dp"
             android:paddingLeft="16dp"
-            android:layout_marginLeft="8dp"
+            android:layout_marginLeft="10dp"
             android:paddingRight="16dp"
             android:layout_marginTop="10dp"
             android:text="Edit"

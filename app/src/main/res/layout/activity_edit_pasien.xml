@@ -7,14 +7,7 @@
     android:background="#E9FFE1"
     tools:context=".EditPasienActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/tolbarEditPasien"
-        android:background="@color/color_main"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"/>
-
     <ScrollView
-        android:layout_below="@id/tolbarEditPasien"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="none">
@@ -24,7 +17,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:id="@+id/txt_noKtp"
                 android:textColor="@android:color/black"
                 android:text="Nomor KTP :"
@@ -190,7 +183,7 @@
                 <Button
                     android:clickable="true"
                     android:id="@+id/editDataPasien"
-                    android:layout_width="210dp"
+                    android:layout_width="175dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginBottom="4dp"
