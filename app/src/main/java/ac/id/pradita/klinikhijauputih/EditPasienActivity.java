@@ -28,8 +28,7 @@ public class EditPasienActivity extends AppCompatActivity {
     FirebaseUser user;
     Button btnEdit;
     Spinner edtJenkel, edtStatus;
-
-
+    String id_pasien, nomorKTP, namaPasien, alamatPasien, umurPasien, noTelpPasien, ibuPasien, pasanganPasien;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,18 +45,24 @@ public class EditPasienActivity extends AppCompatActivity {
         etNamAPasanganPasien = findViewById(R.id.edtPasanganPasien);
         btnEdit = findViewById(R.id.editDataPasien);
 
+        id_pasien = getIntent().getStringExtra("id_pasien");
+
         dialog = new ProgressDialog(this);
-        
-        getDataPasien();
+
+        getDataPasien(id_pasien);
 
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                editDataPasien(etNomorKtpPasien.getText().toString(), etNamaPasien.getText().toString(), etAlamatPasien.getText().toString(),
-                        edtJenkel.getSelectedItem().toString(), etUmurPasien.getText().toString(), edtStatus.getSelectedItem().toString(),
-                        etNamaIbuPasien.getText().toString(), etNamAPasanganPasien.getText().toString());
+                initialize();
+
+//                editDataPasien();
             }
         });
+
+    }
+
+    public void initialize() {
 
     }
 
@@ -66,29 +71,30 @@ public class EditPasienActivity extends AppCompatActivity {
 
     }
 
-    private void getDataPasien() {
+    private void getDataPasien(String idPasien) {
         dialog.show();
         dialog.setMessage("Mohon Tunggu..");
-        FirebaseDatabase.getInstance().getReference("Pasien").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Pasien pasien = snapshot.getValue(Pasien.class);
+        FirebaseDatabase.getInstance().getReference("Pasien").child(idPasien)
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        Pasien pasien = snapshot.getValue(Pasien.class);
 
-                etNomorKtpPasien.setText(pasien.getNo_ktp());
-                etNamaPasien.setText(pasien.getNama());
-                etAlamatPasien.setText(pasien.getAlamat());
-                etUmurPasien.setText(pasien.getUmur());
-                etNamaIbuPasien.setText(pasien.getNama_ibu());
-                etNamAPasanganPasien.setText(pasien.getNama_pasangan());
+                        etNomorKtpPasien.setText(pasien.getNo_ktp());
+                        etNamaPasien.setText(pasien.getNama());
+                        etAlamatPasien.setText(pasien.getAlamat());
+                        etUmurPasien.setText(pasien.getUmur());
+                        etNamaIbuPasien.setText(pasien.getNama_ibu());
+                        etNamAPasanganPasien.setText(pasien.getNama_pasangan());
 
-                dialog.dismiss();
-            }
+                        dialog.dismiss();
+                    }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(getApplicationContext(), "Maaf Terjadi Kesalahan, Silahkan Coba Kembali",Toast.LENGTH_SHORT).show();
-                dialog.dismiss();
-            }
-        });
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Toast.makeText(getApplicationContext(), "Maaf Terjadi Kesalahan, Silahkan Coba Kembali", Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
+                    }
+                });
     }
 }

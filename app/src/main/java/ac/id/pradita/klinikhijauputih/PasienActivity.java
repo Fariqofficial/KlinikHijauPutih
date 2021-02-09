@@ -58,9 +58,9 @@ public class PasienActivity extends AppCompatActivity {
                 listPasienViewHolder.mView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        // tulis intent disini bwang
-                        startActivity(new Intent(getApplicationContext(), DetailPasienActivity.class));
-
+                        Intent intent = new Intent(getApplicationContext(), DetailPasienActivity.class);
+                        intent.putExtra("id_pasien", pasien.getId_pasien());
+                        startActivity(intent);
                     }
                 });
             }

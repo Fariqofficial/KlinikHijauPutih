@@ -118,7 +118,7 @@ public class DaftarPasienActivity extends AppCompatActivity implements AdapterVi
         return valid;
     }
 
-    public void initialize(){
+    public void initialize() {
         nomorKTP = no_ktp.getText().toString().trim();
         namaPasien = nama_pasien.getText().toString().trim();
         alamatPasien = alamat_rumah.getText().toString().trim();
@@ -134,8 +134,10 @@ public class DaftarPasienActivity extends AppCompatActivity implements AdapterVi
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Pasien");
 
+        DatabaseReference databaseReference = reference.push();
+
         HashMap<String, Object> hashMap = new HashMap<>();
-        hashMap.put("id_pasien", reference.push().getKey());
+        hashMap.put("id_pasien", databaseReference.getKey());
         hashMap.put("no_ktp", nomorKTP);
         hashMap.put("nama", namaPasien);
         hashMap.put("alamat", alamatPasien);
@@ -146,7 +148,7 @@ public class DaftarPasienActivity extends AppCompatActivity implements AdapterVi
         hashMap.put("nama_ibu", ibuPasien);
         hashMap.put("nama_pasangan", pasanganPasien);
 
-        reference.push().setValue(hashMap).addOnCompleteListener(task -> {
+        databaseReference.setValue(hashMap).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 Toast.makeText(getApplicationContext(), "Berhasil Mendaftarkan Pasien!", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
