@@ -20,12 +20,12 @@ import java.util.HashMap;
 import static com.google.common.reflect.Reflection.initialize;
 
 public class DaftarDokterActivity extends AppCompatActivity {
-    EditText etNoKTP, etNamaDokter, etAlamatDokter, etPoliDokter, etTelpDokter, etUsernameDokter, etPasswordDokter;
+    EditText etNoKTP, etNamaDokter, etAlamatDokter, etPoliDokter, etTelpDokter, etEmailDokter, etPasswordDokter;
     DatabaseReference reference;
     ProgressDialog dialog;
     Button btn_daftar;
     FirebaseUser user;
-    String ktp_dokter, nama_dokter, alamat_dokter, poli_dokter, telp_dokter, username_dokter, pass_dokter;
+    String ktp_dokter, nama_dokter, alamat_dokter, poli_dokter, telp_dokter, email_dokter, pass_dokter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,7 @@ public class DaftarDokterActivity extends AppCompatActivity {
         etAlamatDokter = findViewById(R.id.alamatDokter);
         etPoliDokter = findViewById(R.id.poliDokter);
         etTelpDokter = findViewById(R.id.telpDokter);
-        etUsernameDokter = findViewById(R.id.usernameDokter);
+        etEmailDokter = findViewById(R.id.emailDokter);
         etPasswordDokter = findViewById(R.id.passDokter);
         btn_daftar = findViewById(R.id.daftarDokter);
 
@@ -62,7 +62,7 @@ public class DaftarDokterActivity extends AppCompatActivity {
         if (!validate()) {
             Toast.makeText(this, "Gagal Mendaftarkan Dokter!", Toast.LENGTH_LONG).show();
         } else {
-            daftarDokterBerhasil(ktp_dokter, nama_dokter, alamat_dokter, poli_dokter, telp_dokter, username_dokter, pass_dokter);
+            daftarDokterBerhasil(ktp_dokter, nama_dokter, alamat_dokter, poli_dokter, telp_dokter, email_dokter, pass_dokter);
         }
     }
 
@@ -89,8 +89,8 @@ public class DaftarDokterActivity extends AppCompatActivity {
             etTelpDokter.setError("Harap Masukkan Nomor Telpon Dokter!");
             valid = false;
         }
-        if (username_dokter.isEmpty()) {
-            etUsernameDokter.setError("Harap Masukkan Username Dokter!");
+        if (email_dokter.isEmpty()) {
+            etEmailDokter.setError("Harap Masukkan Email Dokter!");
             valid = false;
         }
         if (pass_dokter.isEmpty() || pass_dokter.length() < 8) {
@@ -105,24 +105,26 @@ public class DaftarDokterActivity extends AppCompatActivity {
         alamat_dokter = etAlamatDokter.getText().toString().trim();
         poli_dokter = etPoliDokter.getText().toString().trim();
         telp_dokter = etTelpDokter.getText().toString().trim();
-        username_dokter = etUsernameDokter.getText().toString().trim();
+        email_dokter = etEmailDokter.getText().toString().trim();
         pass_dokter = etPasswordDokter.getText().toString().trim();
     }
 
-    private void daftarDokterBerhasil(String ktp_dokter, String nama_dokter, String alamat_dokter, String poli_dokter, String telp_dokter, String username_dokter, String pass_dokter) {
+    private void daftarDokterBerhasil(String ktp_dokter, String nama_dokter, String alamat_dokter, String poli_dokter, String telp_dokter, String email_dokter, String pass_dokter) {
         dialog.show();
         dialog.setMessage("Mohon Tunggu..");
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Dokter");
 
+        DatabaseReference databaseReference = reference.push();
+
         HashMap<String, Object> hashMap = new HashMap<>();
-        hashMap.put("id_dokter", reference.push().getKey());
+        hashMap.put("id_dokter", databaseReference.getKey());
         hashMap.put("ktp", ktp_dokter);
         hashMap.put("nama", nama_dokter);
         hashMap.put("alamat", alamat_dokter);
         hashMap.put("poli", poli_dokter);
         hashMap.put("telpon", telp_dokter);
-        hashMap.put("username", username_dokter);
+        hashMap.put("email", email_dokter);
         hashMap.put("password", pass_dokter);
 
         reference.push().setValue(hashMap).addOnCompleteListener(task -> {

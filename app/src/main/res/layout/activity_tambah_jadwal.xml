@@ -8,7 +8,7 @@
     tools:context=".TambahJadwalActivity">
 
     <TextView
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:id="@+id/txt_namaDokter"
         android:textColor="@android:color/black"
         android:text="Nama Dokter :"
@@ -66,30 +66,10 @@
         android:layout_height="wrap_content"
         android:hint="Masukan Keterangan"/>
 
-    <TextView
-        android:layout_marginTop="10dp"
-        android:id="@+id/txt_nama_staff"
-        android:textColor="@android:color/black"
-        android:layout_below="@id/keterangan"
-        android:text="Nama Staff :"
-        android:layout_marginLeft="8dp"
-        android:textSize="16sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <EditText
-        android:id="@+id/nama_staff"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="3dp"
-        android:layout_below="@id/txt_nama_staff"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Masukan Nama Staff"/>
-
     <RelativeLayout
         android:id="@+id/relayBtn"
         android:gravity="center"
-        android:layout_below="@id/nama_staff"
+        android:layout_below="@id/keterangan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 

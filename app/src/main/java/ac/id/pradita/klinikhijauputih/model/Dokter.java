@@ -2,19 +2,21 @@ package ac.id.pradita.klinikhijauputih.model;
 
 public class Dokter {
 
-    String id_dokter, ktp, nama, alamat, poli, telpon, username, password;
+    String id_dokter, ktp, nama, alamat, poli, telpon, hari, ket_dokter, email, password;
 
     public Dokter() {
     }
 
-    public Dokter(String id_dokter, String ktp, String nama, String alamat, String poli, String telpon, String username, String password) {
+    public Dokter(String id_dokter, String ktp, String nama, String alamat, String poli, String telpon, String hari, String ket_dokter, String email, String password) {
         this.id_dokter = id_dokter;
         this.ktp = ktp;
         this.nama = nama;
         this.alamat = alamat;
         this.poli = poli;
         this.telpon = telpon;
-        this.username = username;
+        this.hari = hari;
+        this.ket_dokter = ket_dokter;
+        this.email = email;
         this.password = password;
     }
 
@@ -66,12 +68,28 @@ public class Dokter {
         this.telpon = telpon;
     }
 
-    public String getUsername() {
-        return username;
+    public String getHari() {
+        return hari;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setHari(String hari) {
+        this.hari = hari;
+    }
+
+    public String getKet_dokter() {
+        return ket_dokter;
+    }
+
+    public void setKet_dokter(String ket_dokter) {
+        this.ket_dokter = ket_dokter;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {

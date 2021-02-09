@@ -7,19 +7,12 @@
     android:background="#E9FFE1"
     tools:context=".DokterActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarDokter"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/color_main"/>
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvDokter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="5dp"
-        android:scrollbars="none"
-        android:layout_below="@id/toolbarDokter"/>
+        android:scrollbars="none"/>
 
 </RelativeLayout>

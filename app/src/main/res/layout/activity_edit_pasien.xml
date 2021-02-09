@@ -176,6 +176,7 @@
             <RelativeLayout
                 android:id="@+id/relayBtn"
                 android:gravity="center"
+                android:layout_marginBottom="8dp"
                 android:layout_below="@id/edtPasanganPasien"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -186,7 +187,6 @@
                     android:layout_width="175dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginBottom="4dp"
                     android:background="@drawable/btn_shape_green"
                     android:paddingLeft="16dp"
                     android:paddingRight="16dp"
