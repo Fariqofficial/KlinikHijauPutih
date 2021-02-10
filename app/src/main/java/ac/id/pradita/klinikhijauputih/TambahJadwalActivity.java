@@ -1,5 +1,6 @@
 package ac.id.pradita.klinikhijauputih;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
@@ -10,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -20,24 +23,23 @@ import java.util.HashMap;
 import static com.google.common.reflect.Reflection.initialize;
 
 public class TambahJadwalActivity extends AppCompatActivity {
-    EditText nama, hari, keterangan, namaStaff;
+
+    EditText hari, keterangan;
     DatabaseReference reference;
     ProgressDialog dialog;
     Button btn_tambah;
     FirebaseUser user;
-    String nama_dokter, hari_praktek, keterangan_dokter, nama_staff;
+    String hari_praktek, ket_dokter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tambah_jadwal);
-        
-        nama = findViewById(R.id.nama_dokter);
+
         hari = findViewById(R.id.hariPraktek);
         keterangan = findViewById(R.id.keterangan);
-        namaStaff = findViewById(R.id.nama_staff);
         btn_tambah = findViewById(R.id.tambahJadwal);
-
+        
         dialog = new ProgressDialog(this);
 
         user = FirebaseAuth.getInstance().getCurrentUser();
@@ -50,7 +52,7 @@ public class TambahJadwalActivity extends AppCompatActivity {
                 tambahJadwal();
             }
         });
-        
+
     }
 
     private void tambahJadwal() {
@@ -58,59 +60,51 @@ public class TambahJadwalActivity extends AppCompatActivity {
         if (!validate()) {
             Toast.makeText(this, "Gagal Menambahkan Jadwal!", Toast.LENGTH_LONG).show();
         } else {
-            tambahJadwalBerhasil(nama_dokter, hari_praktek, keterangan_dokter, nama_staff);
+            tambahJadwalSukses(hari_praktek, ket_dokter);
         }
     }
 
     private boolean validate() {
         boolean valid = true;
-        if (nama_dokter.isEmpty()) {
-            nama.setError("Harap Masukkan Nama Dokter!");
-            valid = false;
-        }
         if (hari_praktek.isEmpty()) {
             hari.setError("Harap Masukkan Hari Praktek Dokter!");
             valid = false;
         }
-        if (keterangan_dokter.isEmpty()) {
-            keterangan.setError("Harap Masukkan Keterangan Dokter!");
-            valid = false;
-        }
-
-        if (nama_staff.isEmpty()) {
-            namaStaff.setError("Harap Masukkan Nama Staff!");
+        if (ket_dokter.isEmpty()) {
+            keterangan.setError("Harap Masukkan Keterangan Dokter Apa!");
          }
         return valid;
     }
 
     public void initialize(){
-        nama_dokter = nama.getText().toString().trim();
         hari_praktek = hari.getText().toString().trim();
-        keterangan_dokter = keterangan.getText().toString().trim();
-        nama_staff = namaStaff.getText().toString().trim();
+        ket_dokter = keterangan.getText().toString().trim();
     }
 
-    private void tambahJadwalBerhasil(String nama_dokter, String hari_praktek, String keterangan_dokter, String nama_staff) {
+    private void tambahJadwalSukses(String hari_praktek, String ket_dokter) {
         dialog.show();
         dialog.setMessage("Mohon Tunggu..");
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Jadwal");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Dokter");
 
-        HashMap<String, String> hashMap = new HashMap<>();
-        hashMap.put("id_jadwal", reference.push().getKey());
-        hashMap.put("nama_dokter", nama_dokter);
-        hashMap.put("hari_praktek", hari_praktek);
-        hashMap.put("keterangan_dokter", keterangan_dokter);
-        hashMap.put("nama_staff", nama_staff);
+        DatabaseReference databaseReference = reference.push();
 
-        reference.push().setValue(hashMap).addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
-                Toast.makeText(getApplicationContext(), "Berhasil Menambahkan Jadwal!", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-                startActivity(intent);
-                dialog.dismiss();
+        HashMap<String, Object> hashMap = new HashMap<>();
+
+        hashMap.put("id_dokter", databaseReference.getKey());
+        hashMap.put("hari", hari_praktek);
+        hashMap.put("ket_dokter", ket_dokter);
+
+        databaseReference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    Toast.makeText(getApplicationContext(), "Berhasil Menambahkan Jadwal!", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                    startActivity(intent);
+                    dialog.dismiss();
+                }
             }
         });
-
     }
 }

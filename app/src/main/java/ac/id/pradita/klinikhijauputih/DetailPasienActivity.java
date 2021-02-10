@@ -27,7 +27,6 @@ public class DetailPasienActivity extends AppCompatActivity {
     TextView tvKTP, tvNama, tvAlamat, tvJenkel, tvUmur, tvStatus, tvTelpon, tvIbuPasien, tvPasangan;
     ProgressDialog dialog;
     Button edit, hapus;
-    DatabaseReference reference;
     String id_pasien;
 
     @Override
@@ -48,7 +47,7 @@ public class DetailPasienActivity extends AppCompatActivity {
         hapus = findViewById(R.id.hapusDtlPasien);
 
         id_pasien = getIntent().getStringExtra("id_pasien");
-        Log.d("lalala", id_pasien);
+        Log.d("cekId", id_pasien);
 
         dialog = new ProgressDialog(this);
     }
@@ -88,7 +87,7 @@ public class DetailPasienActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(getApplicationContext(), "Maaf Terjadi Kesalahan, Silahkan Coba Kembali", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Terjadi Kesalahan, Silahkan Coba Lagi", Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
             }
         });

@@ -7,15 +7,9 @@
     android:background="#E9FFE1"
     tools:context=".DetailRekamMedisDokterActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarDetailRekMedis"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/color_main"/>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cvDetailRekMedis"
-        android:layout_below="@id/toolbarDetailRekMedis"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="345dp"

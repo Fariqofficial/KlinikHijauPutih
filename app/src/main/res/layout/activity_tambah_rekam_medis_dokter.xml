@@ -7,14 +7,7 @@
     android:background="#E9FFE1"
     tools:context=".TambahRekamMedisDokterActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarTambahRekMedis"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/color_main"/>
-
     <ScrollView
-        android:layout_below="@id/toolbarTambahRekMedis"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="none">
@@ -24,50 +17,50 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:layout_marginTop="30dp"
-                android:id="@+id/txt_idDokter"
+                android:layout_marginTop="10dp"
+                android:id="@+id/txt_namaDokter"
                 android:textColor="@android:color/black"
-                android:text="ID Dokter :"
+                android:text="Nama Dokter :"
                 android:layout_marginLeft="8dp"
                 android:textSize="16sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
             <EditText
-                android:id="@+id/id_dokter"
+                android:id="@+id/nama_dokter"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="3dp"
-                android:layout_below="@id/txt_idDokter"
+                android:layout_below="@id/txt_namaDokter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Masukan ID Dokter"/>
+                android:hint="Masukan Nama Dokter"/>
 
             <TextView
                 android:layout_marginTop="10dp"
-                android:id="@+id/txt_idPasien"
+                android:id="@+id/txt_namaPasien"
                 android:textColor="@android:color/black"
-                android:layout_below="@id/id_dokter"
-                android:text="ID Pasien :"
+                android:layout_below="@id/nama_dokter"
+                android:text="Nama Pasien :"
                 android:layout_marginLeft="8dp"
                 android:textSize="16sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
             <EditText
-                android:id="@+id/id_pasien"
+                android:id="@+id/nama_pasien"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="3dp"
-                android:layout_below="@id/txt_idPasien"
+                android:layout_below="@id/txt_namaPasien"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Masukan ID Pasien"
+                android:hint="Masukan Nama Pasien"
                 android:drawablePadding="8dp"/>
 
             <TextView
                 android:layout_marginTop="10dp"
                 android:id="@+id/txt_anastesa"
                 android:textColor="@android:color/black"
-                android:layout_below="@id/id_pasien"
+                android:layout_below="@id/nama_pasien"
                 android:text="Anastesa :"
                 android:layout_marginLeft="8dp"
                 android:textSize="16sp"
@@ -157,7 +150,7 @@
                 <Button
                     android:clickable="true"
                     android:id="@+id/tambahRekMedisDokter"
-                    android:layout_width="210dp"
+                    android:layout_width="175dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginBottom="4dp"
