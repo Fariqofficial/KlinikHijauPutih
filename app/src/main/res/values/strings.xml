@@ -2,4 +2,14 @@
     <string name="app_name">Klinik Hijau Putih</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+
+    <string-array name="kelamin">
+        <item>Laki - Laki</item>
+        <item>Perempuan</item>
+    </string-array>
+
+    <string-array name="status_kawin">
+        <item>Menikah</item>
+        <item>Belum Menikah</item>
+    </string-array>
 </resources>

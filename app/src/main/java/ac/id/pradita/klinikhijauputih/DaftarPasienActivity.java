@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -52,23 +51,6 @@ public class DaftarPasienActivity extends AppCompatActivity implements AdapterVi
         user = FirebaseAuth.getInstance().getCurrentUser();
 
         reference = FirebaseDatabase.getInstance().getReference();
-
-        jenkel.setOnItemSelectedListener(this);
-        String jeniskelamin[] = {"Laki - Laki", "Perempuan"};
-        jenkel.setPrompt("Pilih Jenis Kelamin");
-
-        ArrayAdapter adapterJenkel = new ArrayAdapter(this, android.R.layout.simple_list_item_1, jeniskelamin);
-        jenkel.setOnItemSelectedListener(this);
-        jenkel.setAdapter(adapterJenkel);
-
-        status.setOnItemSelectedListener(this);
-        String statusPerkawinan[] = {"Menikah", "Belum Menikah"};
-        status.setPrompt("Pilih Status Perkawinan");
-
-        ArrayAdapter adapterStatus = new ArrayAdapter(this, android.R.layout.simple_list_item_1, statusPerkawinan);
-        status.setOnItemSelectedListener(this);
-        status.setAdapter(adapterStatus);
-
 
         btn_daftar.setOnClickListener(v -> {
             daftarPasien();

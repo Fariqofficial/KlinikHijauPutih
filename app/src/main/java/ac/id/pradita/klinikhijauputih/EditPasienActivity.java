@@ -14,7 +14,6 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -22,6 +21,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 import ac.id.pradita.klinikhijauputih.model.Pasien;
@@ -32,7 +32,7 @@ public class EditPasienActivity extends AppCompatActivity {
     ProgressDialog dialog;
     FirebaseUser user;
     Button btnEdit;
-    Spinner edtJenkel, edtStatus;
+    Spinner spnrJenkel, spnrStatus;
     String id_pasien, nomorKTP, namaPasien, alamatPasien, umurPasien, noTelpPasien, ibuPasien, pasanganPasien;
 
     @Override
@@ -43,10 +43,10 @@ public class EditPasienActivity extends AppCompatActivity {
         etNomorKtpPasien = findViewById(R.id.editKtpPasien);
         etNamaPasien = findViewById(R.id.editNamaPasien);
         etAlamatPasien = findViewById(R.id.edtAlamatPasien);
-        edtJenkel = findViewById(R.id.edtSpinnerJenkel);
+        spnrJenkel = findViewById(R.id.edtSpinnerJenkel);
         etUmurPasien = findViewById(R.id.edtUmur);
         etTelpPasien = findViewById(R.id.edtTelpPasien);
-        edtStatus = findViewById(R.id.edtSpinnerStatus);
+        spnrStatus = findViewById(R.id.edtSpinnerStatus);
         etNamaIbuPasien = findViewById(R.id.edtIbuPasien);
         etNamAPasanganPasien = findViewById(R.id.edtPasanganPasien);
         btnEdit = findViewById(R.id.editDataPasien);
@@ -62,7 +62,7 @@ public class EditPasienActivity extends AppCompatActivity {
             public void onClick(View v) {
                 initialize();
                 editDataPasien(id_pasien, nomorKTP, namaPasien, alamatPasien, umurPasien, noTelpPasien, ibuPasien, pasanganPasien);
-                }
+            }
         });
 
     }
@@ -77,9 +77,9 @@ public class EditPasienActivity extends AppCompatActivity {
         hashMap.put("no_ktp", nomorKTP);
         hashMap.put("nama", namaPasien);
         hashMap.put("alamat", alamatPasien);
-    //  hashMap.put("jenis_kelamin", rt_edit);
+        hashMap.put("jenis_kelamin", spnrJenkel.getSelectedItem().toString());
         hashMap.put("umur", umurPasien);
-   //   hashMap.put("status", kec_edit);
+        hashMap.put("status", spnrStatus.getSelectedItem().toString());
         hashMap.put("no_hp", noTelpPasien);
         hashMap.put("nama_ibu", ibuPasien);
         hashMap.put("nama_pasangan", pasanganPasien);
@@ -87,7 +87,7 @@ public class EditPasienActivity extends AppCompatActivity {
         reference.updateChildren(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()){
+                if (task.isSuccessful()) {
                     Toast.makeText(getApplicationContext(), "Data Pasien Berhasil Diubah!", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                     startActivity(intent);
@@ -124,6 +124,13 @@ public class EditPasienActivity extends AppCompatActivity {
                         etUmurPasien.setText(pasien.getUmur());
                         etNamaIbuPasien.setText(pasien.getNama_ibu());
                         etNamAPasanganPasien.setText(pasien.getNama_pasangan());
+                        etTelpPasien.setText(pasien.getNo_hp());
+
+                        String[] kelamin = getResources().getStringArray(R.array.kelamin);
+                        spnrJenkel.setSelection(Arrays.asList(kelamin).indexOf(pasien.getJenis_kelamin()));
+
+                        String[] status_kawin = getResources().getStringArray(R.array.status_kawin);
+                        spnrStatus.setSelection(Arrays.asList(status_kawin).indexOf(pasien.getStatus()));
 
                         dialog.dismiss();
                     }
