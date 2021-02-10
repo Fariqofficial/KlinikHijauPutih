@@ -36,6 +36,7 @@ public class DetailDokterActivity extends AppCompatActivity {
         tvTelp = findViewById(R.id.telpDokter);
         tvPoli = findViewById(R.id.poliDokter);
         tvEmail = findViewById(R.id.emailDokter);
+        edit = findViewById(R.id.editDtlDokter);
 
         id_dokter = getIntent().getStringExtra("id_dokter");
         Log.d("cekId", id_dokter);

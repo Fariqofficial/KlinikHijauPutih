@@ -19,7 +19,6 @@ public class PendaftaranActivity extends AppCompatActivity {
         daftarPasien = findViewById(R.id.pendaftaranPasien);
         daftarJadwal = findViewById(R.id.pendaftaranJadwal);
 
-
         daftarDokter.setOnClickListener(v -> {
             startActivity(new Intent(getApplicationContext(), DaftarDokterActivity.class));
         });

@@ -1,66 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#E9FFE1">
+    android:layout_height="90dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginRight="5dp"
+    android:backgroundTint="#99F3BD"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="3dp">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cvItemDokter"
-        android:clickable="true"
-        android:backgroundTint="#99F3BD"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
+    <TextView
+        android:id="@+id/nama_dokter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="10dp"
+        android:text="Nama Dokter"
+        android:textColor="@android:color/black"
+        android:textSize="22sp" />
+
+    <TableRow
         android:layout_width="match_parent"
-        android:layout_height="85dp"
-        app:cardElevation="3dp"
-        app:cardCornerRadius="8dp">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp">
 
         <TextView
-            android:id="@+id/nama_dokter"
-            android:layout_marginTop="10dp"
-            android:textColor="@android:color/black"
-            android:textSize="22sp"
-            android:layout_marginLeft="8dp"
+            android:id="@+id/hariPraktek"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nama Dokter"/>
+            android:layout_marginLeft="8dp"
+            android:text="Hari Praktek"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
 
-        <TableRow
-            android:layout_marginTop="45dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="|"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
 
-            <TextView
-                android:layout_marginLeft="8dp"
-                android:id="@+id/hariPraktek"
-                android:textColor="@android:color/black"
-                android:textSize="20sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Hari Praktek"/>
+        <TextView
+            android:id="@+id/poliDokter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="Nama Poli"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
 
-            <TextView
-                android:layout_marginLeft="5dp"
-                android:textColor="@android:color/black"
-                android:textSize="20sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="|"/>
+    </TableRow>
 
-            <TextView
-                android:id="@+id/poliDokter"
-                android:layout_marginLeft="5dp"
-                android:textColor="@android:color/black"
-                android:textSize="20sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nama Poli"/>
-
-        </TableRow>
-
-    </androidx.cardview.widget.CardView>
-
-</RelativeLayout>
+</androidx.cardview.widget.CardView>

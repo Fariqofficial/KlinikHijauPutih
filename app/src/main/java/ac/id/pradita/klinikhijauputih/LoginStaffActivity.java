@@ -15,6 +15,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginStaffActivity extends AppCompatActivity {
 
@@ -23,6 +24,7 @@ public class LoginStaffActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
     ProgressBar progressBar;
     Button loginStaff;
+    FirebaseUser mUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,9 @@ public class LoginStaffActivity extends AppCompatActivity {
         loginStaff = findViewById(R.id.loginStaff);
         progressBar = findViewById(R.id.progressBar);
         mAuth = FirebaseAuth.getInstance();
+        mUser = FirebaseAuth.getInstance().getCurrentUser();
+
+        isLoggedIn();
 
         loginStaff.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,5 +88,14 @@ public class LoginStaffActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void isLoggedIn() {
+        if (mUser != null) {
+            Intent checkRole = new Intent(getApplicationContext(), HomeActivity.class);
+            checkRole.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(checkRole);
+            finish();
+        }
     }
 }
