@@ -14,7 +14,6 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -28,9 +27,7 @@ import ac.id.pradita.klinikhijauputih.model.Pasien;
 
 public class EditPasienActivity extends AppCompatActivity {
     EditText etNamaPasien, etNomorKtpPasien, etAlamatPasien, etUmurPasien, etTelpPasien, etNamaIbuPasien, etNamAPasanganPasien;
-    DatabaseReference reference;
     ProgressDialog dialog;
-    FirebaseUser user;
     Button btnEdit;
     Spinner spnrJenkel, spnrStatus;
     String id_pasien, nomorKTP, namaPasien, alamatPasien, umurPasien, noTelpPasien, ibuPasien, pasanganPasien;
@@ -89,7 +86,7 @@ public class EditPasienActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
 
                 if (task.isSuccessful()) {
-                    Toast.makeText(getApplicationContext(), "Data Pasien Berhasil Diubah!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Data Berhasil Diubah!", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                     startActivity(intent);
                     dialog.dismiss();
@@ -138,7 +135,7 @@ public class EditPasienActivity extends AppCompatActivity {
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
-                        Toast.makeText(getApplicationContext(), "Maaf Terjadi Kesalahan, Silahkan Coba Kembali", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Terjadi Kesalahan, Silahkan Coba Lagi", Toast.LENGTH_SHORT).show();
                         dialog.dismiss();
                     }
                 });

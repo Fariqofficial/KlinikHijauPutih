@@ -7,14 +7,7 @@
     android:background="#E9FFE1"
     tools:context=".EditDokterActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/tolbarEditDaftarDokter"
-        android:background="@color/color_main"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"/>
-
     <ScrollView
-        android:layout_below="@id/tolbarEditDaftarDokter"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="none">
@@ -24,7 +17,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="10dp"
                 android:id="@+id/txt_noKtp"
                 android:textColor="@android:color/black"
                 android:text="Nomor KTP :"
@@ -126,30 +119,30 @@
 
             <TextView
                 android:layout_marginTop="10dp"
-                android:id="@+id/txt_usernameDokter"
+                android:id="@+id/txt_emailDokter"
                 android:textColor="@android:color/black"
                 android:layout_below="@id/edtTelpDokter"
-                android:text="Username :"
+                android:text="Email :"
                 android:layout_marginLeft="8dp"
                 android:textSize="16sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
             <EditText
-                android:id="@+id/edt_usernameDokter"
+                android:id="@+id/edt_emailDokter"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="3dp"
-                android:layout_below="@id/txt_usernameDokter"
+                android:layout_below="@id/txt_emailDokter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_account"
+                android:drawableLeft="@drawable/ic_email"
                 android:drawablePadding="5dp"/>
 
             <TextView
                 android:layout_marginTop="10dp"
                 android:id="@+id/txt_passDokter"
                 android:textColor="@android:color/black"
-                android:layout_below="@id/edt_usernameDokter"
+                android:layout_below="@id/edt_emailDokter"
                 android:text="Password :"
                 android:layout_marginLeft="8dp"
                 android:textSize="16sp"
