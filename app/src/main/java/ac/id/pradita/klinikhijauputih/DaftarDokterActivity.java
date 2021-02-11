@@ -54,7 +54,6 @@ public class DaftarDokterActivity extends AppCompatActivity {
             }
         });
 
-
     }
 
     private void daftarDokter() {
