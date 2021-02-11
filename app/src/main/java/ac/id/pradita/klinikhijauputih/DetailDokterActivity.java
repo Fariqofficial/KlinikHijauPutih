@@ -20,7 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 import ac.id.pradita.klinikhijauputih.model.Dokter;
 
 public class DetailDokterActivity extends AppCompatActivity {
-    TextView tvNama, tvNoKtp, tvAlamat, tvTelp, tvPoli, tvEmail;
+    TextView tvNama, tvNoKtp, tvAlamat, tvTelp, tvPoli, tvEmail, tvHariPraktek;
     ProgressDialog dialog;
     Button edit, hapus, perbaruiJadwal;
     String id_dokter;
@@ -38,6 +38,7 @@ public class DetailDokterActivity extends AppCompatActivity {
         tvEmail = findViewById(R.id.emailDokter);
         edit = findViewById(R.id.editDtlDokter);
         perbaruiJadwal = findViewById(R.id.editJadwalDokter);
+        tvHariPraktek = findViewById(R.id.hariPraktek);
 
         id_dokter = getIntent().getStringExtra("id_dokter");
         Log.d("cekId", id_dokter);
@@ -64,6 +65,7 @@ public class DetailDokterActivity extends AppCompatActivity {
                 tvTelp.setText(dokter.getTelpon());
                 tvPoli.setText(dokter.getPoli());
                 tvEmail.setText(dokter.getEmail());
+                tvHariPraktek.setText(dokter.getHari());
 
                 perbaruiJadwal.setOnClickListener(new View.OnClickListener() {
                     @Override
