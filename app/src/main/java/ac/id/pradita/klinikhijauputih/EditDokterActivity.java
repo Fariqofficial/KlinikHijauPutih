@@ -43,13 +43,13 @@ public class EditDokterActivity extends AppCompatActivity {
         etTelponDokter = findViewById(R.id.edtTelpDokter);
         etEmailDokter = findViewById(R.id.edt_emailDokter);
         etPassword = findViewById(R.id.edtPassDokter);
+        btnEdit = findViewById(R.id.editDataDokter);
 
         id_dokter = getIntent().getStringExtra("id_dokter");
 
         dialog = new ProgressDialog(this);
 
         getDataDokter(id_dokter);
-
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -41,7 +41,6 @@ public class DetailDokterActivity extends AppCompatActivity {
         tvHariPraktek = findViewById(R.id.hariPraktek);
 
         id_dokter = getIntent().getStringExtra("id_dokter");
-        Log.d("cekId", id_dokter);
 
         dialog = new ProgressDialog(this);
 
