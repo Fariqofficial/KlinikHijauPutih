@@ -13,14 +13,16 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 
-import static com.google.common.reflect.Reflection.initialize;
+import ac.id.pradita.klinikhijauputih.model.Dokter;
 
 public class TambahJadwalActivity extends AppCompatActivity {
 
@@ -29,7 +31,7 @@ public class TambahJadwalActivity extends AppCompatActivity {
     ProgressDialog dialog;
     Button btn_tambah;
     FirebaseUser user;
-    String hari_praktek, ket_dokter;
+    String id_dokter, hari_praktek, ket_dokter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,27 +43,61 @@ public class TambahJadwalActivity extends AppCompatActivity {
         btn_tambah = findViewById(R.id.tambahJadwal);
         
         dialog = new ProgressDialog(this);
+        id_dokter = getIntent().getStringExtra("id_dokter");
 
-        user = FirebaseAuth.getInstance().getCurrentUser();
+        getIdDokter(id_dokter);
 
-        reference = FirebaseDatabase.getInstance().getReference();
-        
         btn_tambah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tambahJadwal();
+                initialize();
+                tambahDataJadwal(id_dokter, hari_praktek, ket_dokter);
             }
         });
-
     }
 
-    private void tambahJadwal() {
-        initialize();
-        if (!validate()) {
-            Toast.makeText(this, "Gagal Menambahkan Jadwal!", Toast.LENGTH_LONG).show();
-        } else {
-            tambahJadwalSukses(hari_praktek, ket_dokter);
-        }
+    private void tambahDataJadwal(String id_dokter, String hari_praktek, String ket_dokter) {
+        dialog.show();
+        dialog.setMessage("Mohon Tunggu..");
+
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Dokter").child(id_dokter);
+
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("hari", hari_praktek);
+        hashMap.put("ket_dokter", ket_dokter);
+
+        reference.updateChildren(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()){
+                    Toast.makeText(getApplicationContext(), "Data Berhasil Ditambah!", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                    startActivity(intent);
+                    dialog.dismiss();
+                }
+            }
+        });
+    }
+
+    private void getIdDokter(String id_dokter) {
+        FirebaseDatabase.getInstance().getReference("Dokter").child(id_dokter)
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                        Dokter dokter = snapshot.getValue(Dokter.class);
+
+
+
+                        dialog.dismiss();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Toast.makeText(getApplicationContext(), "Maaf Terjadi Kesalahan, Silahkan Coba Kembali", Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
+                    }
+                });
     }
 
     private boolean validate() {
@@ -79,32 +115,5 @@ public class TambahJadwalActivity extends AppCompatActivity {
     public void initialize(){
         hari_praktek = hari.getText().toString().trim();
         ket_dokter = keterangan.getText().toString().trim();
-    }
-
-    private void tambahJadwalSukses(String hari_praktek, String ket_dokter) {
-        dialog.show();
-        dialog.setMessage("Mohon Tunggu..");
-
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Dokter");
-
-        DatabaseReference databaseReference = reference.push();
-
-        HashMap<String, Object> hashMap = new HashMap<>();
-
-        hashMap.put("id_dokter", databaseReference.getKey());
-        hashMap.put("hari", hari_praktek);
-        hashMap.put("ket_dokter", ket_dokter);
-
-        databaseReference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()) {
-                    Toast.makeText(getApplicationContext(), "Berhasil Menambahkan Jadwal!", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-                    startActivity(intent);
-                    dialog.dismiss();
-                }
-            }
-        });
     }
 }

@@ -88,7 +88,7 @@ public class EditPasienActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()){
-                    Toast.makeText(getApplicationContext(), "Data Pasien Berhasil Diubah!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Data Berhasil Diubah!", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                     startActivity(intent);
                     dialog.dismiss();

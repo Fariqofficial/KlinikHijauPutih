@@ -14,6 +14,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
+
 import static com.google.common.reflect.Reflection.initialize;
 
 public class TambahRekamMedisDokterActivity extends AppCompatActivity {
@@ -63,7 +65,15 @@ public class TambahRekamMedisDokterActivity extends AppCompatActivity {
     }
 
     private void tambahData(String nama_dokter, String nama_pasien, String anastesa, String diagnosa, String terapi, String resep) {
-    
+        dialog.show();
+        dialog.setMessage("Mohon Tunggu..");
+
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Rekam Medis");
+
+        DatabaseReference databaseReference = reference.push();
+
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("id_rekamMedis", databaseReference.getKey());
     }
 
     private boolean validate(){
