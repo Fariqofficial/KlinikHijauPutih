@@ -24,7 +24,7 @@ import java.util.HashMap;
 
 import ac.id.pradita.klinikhijauputih.model.Dokter;
 
-public class TambahJadwalActivity extends AppCompatActivity {
+public class EditJadwalActivity extends AppCompatActivity {
 
     EditText hari, keterangan;
     DatabaseReference reference;
@@ -36,7 +36,7 @@ public class TambahJadwalActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tambah_jadwal);
+        setContentView(R.layout.activity_edit_jadwal);
 
         hari = findViewById(R.id.hariPraktek);
         keterangan = findViewById(R.id.keterangan);
@@ -44,8 +44,6 @@ public class TambahJadwalActivity extends AppCompatActivity {
         
         dialog = new ProgressDialog(this);
         id_dokter = getIntent().getStringExtra("id_dokter");
-
-        getIdDokter(id_dokter);
 
         btn_tambah.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,26 +77,6 @@ public class TambahJadwalActivity extends AppCompatActivity {
         });
     }
 
-    private void getIdDokter(String id_dokter) {
-        FirebaseDatabase.getInstance().getReference("Dokter").child(id_dokter)
-                .addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                        Dokter dokter = snapshot.getValue(Dokter.class);
-
-
-
-                        dialog.dismiss();
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-                        Toast.makeText(getApplicationContext(), "Maaf Terjadi Kesalahan, Silahkan Coba Kembali", Toast.LENGTH_SHORT).show();
-                        dialog.dismiss();
-                    }
-                });
-    }
 
     private boolean validate() {
         boolean valid = true;

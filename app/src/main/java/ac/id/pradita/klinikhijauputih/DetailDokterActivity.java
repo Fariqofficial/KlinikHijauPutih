@@ -22,7 +22,7 @@ import ac.id.pradita.klinikhijauputih.model.Dokter;
 public class DetailDokterActivity extends AppCompatActivity {
     TextView tvNama, tvNoKtp, tvAlamat, tvTelp, tvPoli, tvEmail;
     ProgressDialog dialog;
-    Button edit, hapus;
+    Button edit, hapus, perbaruiJadwal;
     String id_dokter;
 
     @Override
@@ -37,6 +37,7 @@ public class DetailDokterActivity extends AppCompatActivity {
         tvPoli = findViewById(R.id.poliDokter);
         tvEmail = findViewById(R.id.emailDokter);
         edit = findViewById(R.id.editDtlDokter);
+        perbaruiJadwal = findViewById(R.id.editJadwalDokter);
 
         id_dokter = getIntent().getStringExtra("id_dokter");
         Log.d("cekId", id_dokter);
@@ -63,6 +64,15 @@ public class DetailDokterActivity extends AppCompatActivity {
                 tvTelp.setText(dokter.getTelpon());
                 tvPoli.setText(dokter.getPoli());
                 tvEmail.setText(dokter.getEmail());
+
+                perbaruiJadwal.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), EditJadwalActivity.class);
+                        intent.putExtra("id_dokter", dokter.getId_dokter());
+                        startActivity(intent);
+                    }
+                });
 
                 edit.setOnClickListener(new View.OnClickListener() {
                     @Override

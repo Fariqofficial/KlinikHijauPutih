@@ -26,7 +26,7 @@
         <activity android:name=".DaftarDokterActivity" />
         <activity android:name=".PasienActivity" />
         <activity android:name=".DokterActivity" />
-        <activity android:name=".TambahJadwalActivity" />
+        <activity android:name=".EditJadwalActivity" />
         <activity android:name=".LoginStaffActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
