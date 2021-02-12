@@ -7,7 +7,6 @@
     android:background="#E9FFE1"
     tools:context=".DetailRekamMedisDokterActivity">
 
-
     <androidx.cardview.widget.CardView
         android:id="@+id/cvDetailRekMedis"
         android:layout_marginTop="20dp"
@@ -28,7 +27,7 @@
             android:layout_height="wrap_content"
             android:text="Nama Pasien"/>
 
-        <TableRow
+        <RelativeLayout
             android:layout_marginTop="65dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -43,7 +42,8 @@
                 android:text="ID Rekam Medis :"/>
 
             <TextView
-                android:layout_marginLeft="8dp"
+                android:layout_toRightOf="@id/txt_idRekMedis"
+                android:layout_marginLeft="10dp"
                 android:id="@+id/idRekMedis"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
@@ -51,9 +51,9 @@
                 android:layout_height="wrap_content"
                 android:text="Nomor ID"/>
 
-        </TableRow>
+        </RelativeLayout>
 
-        <TableRow
+        <RelativeLayout
             android:layout_marginTop="100dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -68,17 +68,18 @@
                 android:text="ID Pasien :"/>
 
             <TextView
-                android:layout_marginLeft="70dp"
                 android:id="@+id/idPasien"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nomor ID"/>
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/txt_idPasien"
+                android:text="Nomor ID"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
 
-        </TableRow>
+        </RelativeLayout>
 
-        <TableRow
+        <RelativeLayout
             android:layout_marginTop="135dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -93,17 +94,18 @@
                 android:text="ID Dokter :"/>
 
             <TextView
-                android:layout_marginLeft="70dp"
-                android:id="@+id/alamatDokter"
+                android:layout_toRightOf="@id/txt_idDokter"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/idDokter"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nomor ID"/>
 
-        </TableRow>
+        </RelativeLayout>
 
-        <TableRow
+        <RelativeLayout
             android:layout_marginTop="170dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -118,7 +120,8 @@
                 android:text="Anastesa :"/>
 
             <TextView
-                android:layout_marginLeft="45dp"
+                android:layout_toRightOf="@id/txt_anastesa"
+                android:layout_marginLeft="10dp"
                 android:id="@+id/anastesa"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
@@ -126,9 +129,9 @@
                 android:layout_height="wrap_content"
                 android:text="Anastesa"/>
 
-        </TableRow>
+        </RelativeLayout>
 
-        <TableRow
+        <RelativeLayout
             android:layout_marginTop="205dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -143,7 +146,8 @@
                 android:text="Diagnosa :"/>
 
             <TextView
-                android:layout_marginLeft="70dp"
+                android:layout_toRightOf="@id/txt_diagnosa"
+                android:layout_marginLeft="10dp"
                 android:id="@+id/diagnosa"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
@@ -151,9 +155,9 @@
                 android:layout_height="wrap_content"
                 android:text="Nama Penyakit"/>
 
-        </TableRow>
+        </RelativeLayout>
 
-        <TableRow
+        <RelativeLayout
             android:layout_marginTop="240dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -168,7 +172,8 @@
                 android:text="Terapi :"/>
 
             <TextView
-                android:layout_marginLeft="100dp"
+                android:layout_toRightOf="@id/txt_terapi"
+                android:layout_marginLeft="10dp"
                 android:id="@+id/terapi"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
@@ -176,9 +181,9 @@
                 android:layout_height="wrap_content"
                 android:text="Nama Terapi"/>
 
-        </TableRow>
+        </RelativeLayout>
 
-        <TableRow
+        <RelativeLayout
             android:layout_marginTop="275dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -193,7 +198,8 @@
                 android:text="Resep :"/>
 
             <TextView
-                android:layout_marginLeft="30dp"
+                android:layout_toRightOf="@id/txt_resep"
+                android:layout_marginLeft="10dp"
                 android:id="@+id/resep"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
@@ -202,9 +208,9 @@
                 android:text="Nama Resep"
                 android:maxLines="2"/>
 
-        </TableRow>
+        </RelativeLayout>
 
-        <TableRow
+        <RelativeLayout
             android:layout_marginTop="310dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -219,7 +225,8 @@
                 android:text="Tanggal Dibuat :"/>
 
             <TextView
-                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@id/txt_tglresep"
+                android:layout_marginLeft="10dp"
                 android:id="@+id/tglResep"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
@@ -227,51 +234,50 @@
                 android:layout_height="wrap_content"
                 android:text="DD/MM/YY"/>
 
-        </TableRow>
+        </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
 
-    <TableRow
-        android:gravity="center"
-        android:layout_marginTop="10dp"
-        android:layout_below="@id/cvDetailRekMedis"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cvDetailRekMedis"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp">
 
         <Button
             android:id="@+id/hapusDtlRekMedis"
-            android:layout_width="170dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="4dp"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:layout_marginTop="10dp"
+            android:clickable="true"
+            android:layout_marginRight="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_shape_hapus"
             android:text="Hapus"
-            android:background="@drawable/btn_shape_orange"
             android:textAllCaps="false"
+            android:textColor="@android:color/white"
             android:textSize="17sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/white"/>
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/editDtlRekMedis"
-            android:clickable="true"
-            android:layout_width="170dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="4dp"
-            android:paddingLeft="16dp"
-            android:layout_marginLeft="8dp"
-            android:paddingRight="16dp"
-            android:layout_marginTop="10dp"
-            android:text="Edit"
+            android:layout_marginLeft="4dp"
+            android:layout_weight="1"
             android:background="@drawable/btn_shape_green"
+            android:clickable="true"
+            android:text="Edit"
             android:textAllCaps="false"
+            android:textColor="@android:color/white"
             android:textSize="17sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/white"/>
+            android:textStyle="bold" />
 
-    </TableRow>
+    </LinearLayout>
 
 </RelativeLayout>

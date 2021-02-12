@@ -7,14 +7,7 @@
     android:background="#E9FFE1"
     tools:context=".EditRekamMedisDokterActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarEdtRekMedis"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/color_main"/>
-
     <ScrollView
-        android:layout_below="@id/toolbarEdtRekMedis"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="none">
@@ -24,7 +17,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="10dp"
                 android:id="@+id/txt_idDokter"
                 android:textColor="@android:color/black"
                 android:text="ID Dokter :"
@@ -33,8 +26,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
-            <EditText
-                android:id="@+id/edt_id_dokter"
+            <TextView
+                android:id="@+id/id_dokter"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="3dp"
                 android:layout_below="@id/txt_idDokter"
@@ -45,15 +38,15 @@
                 android:layout_marginTop="10dp"
                 android:id="@+id/txt_idPasien"
                 android:textColor="@android:color/black"
-                android:layout_below="@id/edt_id_dokter"
+                android:layout_below="@id/id_dokter"
                 android:text="ID Pasien :"
                 android:layout_marginLeft="8dp"
                 android:textSize="16sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
-            <EditText
-                android:id="@+id/edt_id_pasien"
+            <TextView
+                android:id="@+id/id_pasien"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="3dp"
                 android:layout_below="@id/txt_idPasien"
@@ -65,7 +58,7 @@
                 android:layout_marginTop="10dp"
                 android:id="@+id/txt_anastesa"
                 android:textColor="@android:color/black"
-                android:layout_below="@id/edt_id_pasien"
+                android:layout_below="@id/id_pasien"
                 android:text="Anastesa :"
                 android:layout_marginLeft="8dp"
                 android:textSize="16sp"
@@ -151,7 +144,7 @@
                 <Button
                     android:clickable="true"
                     android:id="@+id/edtRekMedisDokter"
-                    android:layout_width="210dp"
+                    android:layout_width="170dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginBottom="4dp"

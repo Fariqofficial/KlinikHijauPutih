@@ -18,49 +18,51 @@
 
             <TextView
                 android:layout_marginTop="10dp"
-                android:id="@+id/txt_namaDokter"
+                android:id="@+id/txt_idDokter"
                 android:textColor="@android:color/black"
-                android:text="Nama Dokter :"
+                android:text="ID Dokter :"
                 android:layout_marginLeft="8dp"
                 android:textSize="16sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
-            <EditText
-                android:id="@+id/nama_dokter"
+            <TextView
+                android:text="Nomor ID Dokter"
+                android:id="@+id/id_dokter"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="3dp"
-                android:layout_below="@id/txt_namaDokter"
+                android:layout_below="@id/txt_idDokter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Masukan Nama Dokter"/>
+                android:textSize="14sp"/>
 
             <TextView
                 android:layout_marginTop="10dp"
-                android:id="@+id/txt_namaPasien"
+                android:id="@+id/txt_idPasien"
                 android:textColor="@android:color/black"
-                android:layout_below="@id/nama_dokter"
-                android:text="Nama Pasien :"
+                android:layout_below="@id/id_dokter"
+                android:text="ID Pasien :"
                 android:layout_marginLeft="8dp"
                 android:textSize="16sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
-            <EditText
-                android:id="@+id/nama_pasien"
+            <TextView
+                android:id="@+id/id_pasien"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="3dp"
-                android:layout_below="@id/txt_namaPasien"
+                android:layout_below="@id/txt_idPasien"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Masukan Nama Pasien"
+                android:text="Nomor ID Pasien"
+                android:textSize="14sp"
                 android:drawablePadding="8dp"/>
 
             <TextView
                 android:layout_marginTop="10dp"
                 android:id="@+id/txt_anastesa"
                 android:textColor="@android:color/black"
-                android:layout_below="@id/nama_pasien"
+                android:layout_below="@id/id_pasien"
                 android:text="Anastesa :"
                 android:layout_marginLeft="8dp"
                 android:textSize="16sp"

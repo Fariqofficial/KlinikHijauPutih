@@ -30,6 +30,7 @@
                 android:id="@+id/edtKTPDokter"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="3dp"
+                android:inputType="number"
                 android:layout_below="@id/txt_noKtp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
@@ -49,6 +50,7 @@
                 android:id="@+id/edt_namaDokter"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="3dp"
+                android:inputType="textPersonName"
                 android:layout_below="@id/txt_namaDokter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -73,6 +75,7 @@
                 android:layout_below="@id/txt_alamatDokter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="textPostalAddress"
                 android:drawableLeft="@drawable/ic_home"
                 android:drawablePadding="10dp"
                 android:maxLines="2"/>
@@ -94,7 +97,8 @@
                 android:layout_marginLeft="3dp"
                 android:layout_below="@id/txt_poliDokter"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:inputType="text"/>
 
             <TextView
                 android:layout_marginTop="10dp"
@@ -114,6 +118,7 @@
                 android:layout_below="@id/txt_telpDokter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="number"
                 android:drawableLeft="@drawable/ic_phone"
                 android:drawablePadding="8dp"/>
 
@@ -136,7 +141,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_email"
-                android:drawablePadding="5dp"/>
+                android:drawablePadding="5dp"
+                android:inputType="textEmailAddress"/>
 
             <TextView
                 android:layout_marginTop="10dp"
@@ -156,6 +162,7 @@
                 android:layout_below="@id/txt_passDokter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="textPassword"
                 android:drawableLeft="@drawable/ic_lock"
                 android:drawablePadding="8dp"/>
 

@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ac.id.pradita.klinikhijauputih">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KlinikHijauPutih">
-        <activity android:name=".BuatAkunStaffActivity"/>
+        <activity android:name=".RekamMedisDokterActivity"></activity>
+        <activity android:name=".BuatAkunStaffActivity" />
         <activity android:name=".DetailRekamMedisDokterActivity" />
         <activity android:name=".EditRekamMedisDokterActivity" />
         <activity android:name=".TambahRekamMedisDokterActivity" />
@@ -22,12 +23,12 @@
         <activity android:name=".DetailDokterActivity" />
         <activity android:name=".DetailPasienActivity" />
         <activity android:name=".RekamMedisActivity" />
-        <activity android:name=".DaftarPasienActivity"/>
+        <activity android:name=".DaftarPasienActivity" />
         <activity android:name=".DaftarDokterActivity" />
         <activity android:name=".PasienActivity" />
         <activity android:name=".DokterActivity" />
         <activity android:name=".EditJadwalActivity" />
-        <activity android:name=".LoginStaffActivity" >
+        <activity android:name=".LoginStaffActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -36,9 +37,8 @@
         </activity>
         <activity android:name=".LoginDokterActivity" />
         <activity android:name=".PendaftaranActivity" />
-        <activity android:name=".HomeActivity"/>
-        <activity android:name=".MainActivity">
-        </activity>
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>

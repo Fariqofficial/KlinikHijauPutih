@@ -153,7 +153,7 @@ public class DaftarPasienActivity extends AppCompatActivity implements AdapterVi
             alertInput.setNegativeButton("Done", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-//                    String input
+
                 }
             });
             alertInput.setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
