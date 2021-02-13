@@ -14,6 +14,8 @@ public class PendaftaranActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pendaftaran);
 
+        getSupportActionBar().setTitle("Pendaftaran");
+
         daftarDokter = findViewById(R.id.pendaftaranDokter);
         daftarPasien = findViewById(R.id.pendaftaranPasien);
         daftarJadwal = findViewById(R.id.pendaftaranJadwal);

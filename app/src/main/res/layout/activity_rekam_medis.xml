@@ -7,7 +7,6 @@
     android:background="#E9FFE1"
     tools:context=".RekamMedisActivity">
 
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvRekamMedis"
         android:layout_width="match_parent"

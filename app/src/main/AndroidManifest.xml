@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KlinikHijauPutih">
-        <activity android:name=".RekamMedisDokterActivity"></activity>
+        <activity android:name=".CheckRoleActivity" />
+        <activity android:name=".RekamMedisDokterActivity" />
         <activity android:name=".BuatAkunStaffActivity" />
         <activity android:name=".DetailRekamMedisDokterActivity" />
         <activity android:name=".EditRekamMedisDokterActivity" />
@@ -28,17 +29,16 @@
         <activity android:name=".PasienActivity" />
         <activity android:name=".DokterActivity" />
         <activity android:name=".EditJadwalActivity" />
-        <activity android:name=".LoginStaffActivity">
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginDokterActivity" />
         <activity android:name=".PendaftaranActivity" />
         <activity android:name=".HomeActivity" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

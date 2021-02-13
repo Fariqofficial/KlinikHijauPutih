@@ -5,11 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -25,6 +27,7 @@ public class DaftarDokterActivity extends AppCompatActivity {
     ProgressDialog dialog;
     Button btn_daftar;
     FirebaseUser user;
+    FirebaseAuth firebaseAuth;
     String ktp_dokter, nama_dokter, alamat_dokter, poli_dokter, telp_dokter, email_dokter, pass_dokter;
 
     @Override
@@ -40,6 +43,8 @@ public class DaftarDokterActivity extends AppCompatActivity {
         etEmailDokter = findViewById(R.id.emailDokter);
         etPasswordDokter = findViewById(R.id.passDokter);
         btn_daftar = findViewById(R.id.daftarDokter);
+
+        firebaseAuth = FirebaseAuth.getInstance(FirebaseApp.initializeApp(this));
 
         dialog = new ProgressDialog(this);
 
@@ -88,17 +93,18 @@ public class DaftarDokterActivity extends AppCompatActivity {
             etTelpDokter.setError("Harap Masukkan Nomor Telpon Dokter!");
             valid = false;
         }
-        if (email_dokter.isEmpty()) {
+        if (email_dokter.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(email_dokter).matches()) {
             etEmailDokter.setError("Harap Masukkan Email Dokter!");
             valid = false;
         }
         if (pass_dokter.isEmpty() || pass_dokter.length() < 8) {
             etPasswordDokter.setError("Harap Masukkan Password Lebih Dari 8 Karakter");
+            valid = false;
         }
         return valid;
     }
 
-    public void initialize(){
+    public void initialize() {
         ktp_dokter = etNoKTP.getText().toString().trim();
         nama_dokter = etNamaDokter.getText().toString().trim();
         alamat_dokter = etAlamatDokter.getText().toString().trim();
@@ -128,6 +134,7 @@ public class DaftarDokterActivity extends AppCompatActivity {
 
         databaseReference.setValue(hashMap).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
+                createAccountDokter(email_dokter, pass_dokter);
                 Toast.makeText(getApplicationContext(), "Berhasil Mendaftarkan Dokter!", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                 startActivity(intent);
@@ -135,4 +142,10 @@ public class DaftarDokterActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void createAccountDokter(String email_dokter, String pass_dokter) {
+        firebaseAuth.createUserWithEmailAndPassword(email_dokter, pass_dokter);
+
+    }
+
 }

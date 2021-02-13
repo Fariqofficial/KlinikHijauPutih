@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,12 +23,14 @@ public class PasienActivity extends AppCompatActivity {
 
     RecyclerView rv_pasien;
     DatabaseReference reference;
+    String page_request;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pasien);
 
+        page_request = getIntent().getStringExtra("page_request");
         rv_pasien = findViewById(R.id.rvPasien);
 
         rv_pasien.setLayoutManager(new LinearLayoutManager(this));
@@ -58,9 +61,15 @@ public class PasienActivity extends AppCompatActivity {
                 listPasienViewHolder.mView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(getApplicationContext(), DetailPasienActivity.class);
-                        intent.putExtra("id_pasien", pasien.getId_pasien());
-                        startActivity(intent);
+                        if (page_request != null) {
+                            if (page_request.equals("RM_Dokter")) {
+                                Toast.makeText(getApplicationContext(), "aaaa", Toast.LENGTH_SHORT).show();
+                            }
+                        } else {
+                            Intent intent = new Intent(getApplicationContext(), DetailPasienActivity.class);
+                            intent.putExtra("id_pasien", pasien.getId_pasien());
+                            startActivity(intent);
+                        }
                     }
                 });
             }

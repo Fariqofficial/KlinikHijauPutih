@@ -38,6 +38,8 @@ public class HomeActivity extends AppCompatActivity {
 
         initNavDrawer();
 
+        getSupportActionBar().setTitle("Home");
+
         namaStaff = findViewById(R.id.Staff);
 
         drawerLayout = findViewById(R.id.drawerLayout);
@@ -76,7 +78,7 @@ public class HomeActivity extends AppCompatActivity {
                 });
     }
 
-    public void initNavDrawer(){
+    public void initNavDrawer() {
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -84,7 +86,7 @@ public class HomeActivity extends AppCompatActivity {
 
                 int id = item.getItemId();
 
-                switch (id){
+                switch (id) {
                     case R.id.home:
                         Intent intent = new Intent(HomeActivity.this, HomeActivity.class);
                         startActivity(intent);
@@ -115,7 +117,7 @@ public class HomeActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (toggle.onOptionsItemSelected(item)){
+        if (toggle.onOptionsItemSelected(item)) {
             return true;
         }
         return super.onOptionsItemSelected(item);

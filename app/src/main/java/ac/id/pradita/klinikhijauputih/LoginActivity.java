@@ -17,7 +17,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class LoginStaffActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     String email, password;
     EditText emailStaff, passwordStaff;
@@ -29,7 +29,7 @@ public class LoginStaffActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login_staff);
+        setContentView(R.layout.activity_login);
 
         emailStaff = findViewById(R.id.emailStaff);
         passwordStaff = findViewById(R.id.passwordStaff);
@@ -78,7 +78,7 @@ public class LoginStaffActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), CheckRoleActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
                     finish();
@@ -92,7 +92,7 @@ public class LoginStaffActivity extends AppCompatActivity {
 
     private void isLoggedIn() {
         if (mUser != null) {
-            Intent checkRole = new Intent(getApplicationContext(), HomeActivity.class);
+            Intent checkRole = new Intent(getApplicationContext(), CheckRoleActivity.class);
             checkRole.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(checkRole);
             finish();
