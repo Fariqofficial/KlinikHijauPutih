@@ -9,231 +9,231 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cvDetailPasien"
-        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="350dp"
-        app:cardElevation="3dp"
-        app:cardCornerRadius="8dp"
         android:layout_margin="8dp"
-        android:backgroundTint="@color/color_main">
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/color_main"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="3dp">
 
         <TextView
             android:id="@+id/namaPasien"
-            android:layout_marginTop="10dp"
-            android:textColor="@android:color/white"
-            android:textSize="25sp"
-            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nama Pasien"/>
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="Nama Pasien"
+            android:textColor="@android:color/white"
+            android:textSize="25sp" />
 
         <RelativeLayout
-            android:layout_marginTop="65dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="65dp">
 
             <TextView
-                android:layout_marginLeft="6dp"
                 android:id="@+id/txt_noKtp"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="No. KTP :"/>
+                android:layout_marginLeft="6dp"
+                android:text="No. KTP :"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
 
             <TextView
-                android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@id/txt_noKtp"
                 android:id="@+id/ktpPasien"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nomor KTP"/>
+                android:layout_marginLeft="14dp"
+                android:layout_toRightOf="@id/txt_noKtp"
+                android:text="Nomor KTP"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
 
         </RelativeLayout>
 
 
         <RelativeLayout
-            android:layout_marginTop="100dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp">
 
             <TextView
-                android:layout_marginLeft="6dp"
                 android:id="@+id/txt_alamat"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Alamat :"/>
+                android:layout_marginLeft="6dp"
+                android:text="Alamat :"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
 
             <TextView
-                android:layout_toRightOf="@id/txt_alamat"
-                android:layout_marginLeft="15dp"
                 android:id="@+id/alamatPasien"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nama Alamat"/>
+                android:layout_marginLeft="14dp"
+                android:layout_toRightOf="@id/txt_alamat"
+                android:text="Nama Alamat"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
 
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_marginTop="135dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="135dp">
 
             <TextView
-                android:layout_marginLeft="6dp"
                 android:id="@+id/txt_jenkel"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Jenis Kelamin :"/>
+                android:layout_marginLeft="6dp"
+                android:text="Jenis Kelamin :"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
 
             <TextView
-                android:layout_toRightOf="@id/txt_jenkel"
-                android:layout_marginLeft="8dp"
                 android:id="@+id/jenkel"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Jenis Kelamin"/>
+                android:layout_marginLeft="14dp"
+                android:layout_toRightOf="@id/txt_jenkel"
+                android:text="Jenis Kelamin"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
 
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_marginTop="170dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="170dp">
 
             <TextView
-                android:layout_marginLeft="6dp"
                 android:id="@+id/txt_umur"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Umur :"/>
+                android:layout_marginLeft="6dp"
+                android:text="Umur :"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
 
             <TextView
-                android:layout_toRightOf="@id/txt_umur"
-                android:layout_marginLeft="30dp"
                 android:id="@+id/umur"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Umur"/>
+                android:layout_marginLeft="14dp"
+                android:layout_toRightOf="@id/txt_umur"
+                android:text="Umur"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
 
         </RelativeLayout>
 
 
         <RelativeLayout
-            android:layout_marginTop="205dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="205dp">
 
             <TextView
-                android:layout_marginLeft="6dp"
                 android:id="@+id/txt_status"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Status :"/>
+                android:layout_marginLeft="6dp"
+                android:text="Status :"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
 
             <TextView
-                android:layout_toRightOf="@id/txt_status"
-                android:layout_marginLeft="20dp"
                 android:id="@+id/status"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Status Pernikahan"/>
+                android:layout_marginLeft="14dp"
+                android:layout_toRightOf="@id/txt_status"
+                android:text="Status Pernikahan"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
 
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_marginTop="240dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="240dp">
 
             <TextView
-                android:layout_marginLeft="6dp"
                 android:id="@+id/txt_telpPasien"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="No. Telp :"/>
+                android:layout_marginLeft="6dp"
+                android:text="No. Telp :"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
 
             <TextView
-                android:layout_toRightOf="@id/txt_telpPasien"
-                android:layout_marginLeft="8dp"
                 android:id="@+id/telpPasien"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="No. Telp"/>
+                android:layout_marginLeft="14dp"
+                android:layout_toRightOf="@id/txt_telpPasien"
+                android:text="No. Telp"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
 
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_marginTop="275dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="275dp">
 
             <TextView
-                android:layout_marginLeft="6dp"
                 android:id="@+id/txt_namaIbu"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nama Ibu :"/>
+                android:layout_marginLeft="6dp"
+                android:text="Nama Ibu :"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
 
             <TextView
-                android:layout_toRightOf="@id/txt_namaIbu"
-                android:layout_marginLeft="10dp"
                 android:id="@+id/ibuPasien"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ibu Pasien"/>
+                android:layout_marginLeft="14dp"
+                android:layout_toRightOf="@id/txt_namaIbu"
+                android:text="Ibu Pasien"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
 
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_marginTop="310dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="310dp">
 
             <TextView
-                android:layout_marginLeft="6dp"
                 android:id="@+id/txt_namaPasangan"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nama Pasangan :"/>
+                android:layout_marginLeft="6dp"
+                android:text="Nama Pasangan :"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
 
             <TextView
-                android:layout_toRightOf="@id/txt_namaPasangan"
-                android:layout_marginLeft="10dp"
                 android:id="@+id/pasanganPasien"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="-"/>
+                android:layout_marginLeft="14dp"
+                android:layout_toRightOf="@id/txt_namaPasangan"
+                android:text="-"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
 
         </RelativeLayout>
 

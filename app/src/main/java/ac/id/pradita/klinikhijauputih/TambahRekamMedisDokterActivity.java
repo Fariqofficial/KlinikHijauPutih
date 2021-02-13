@@ -1,8 +1,5 @@
 package ac.id.pradita.klinikhijauputih;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +9,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -20,8 +20,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
-
-import static com.google.common.reflect.Reflection.initialize;
 
 public class TambahRekamMedisDokterActivity extends AppCompatActivity {
 
@@ -39,7 +37,7 @@ public class TambahRekamMedisDokterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tambah_rekam_medis_dokter);
 
         tvIdDokter = findViewById(R.id.id_dokter);
-        tvIdPasien =findViewById(R.id.id_pasien);
+        tvIdPasien = findViewById(R.id.id_pasien);
         edtAnastesa = findViewById(R.id.anastesa);
         edtDiagnosa = findViewById(R.id.diagnosa);
         edtTerapi = findViewById(R.id.terapi);
@@ -80,8 +78,8 @@ public class TambahRekamMedisDokterActivity extends AppCompatActivity {
 
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("id_rekMedis", databaseReference.getKey());
-      //  hashMap.put("id_dokter", nomorKTP);
-      //  hashMap.put("id_pasien", namaPasien);
+        //  hashMap.put("id_dokter", nomorKTP);
+        //  hashMap.put("id_pasien", namaPasien);
         hashMap.put("anastesa", anastesa);
         hashMap.put("diagnosa", diagnosa);
         hashMap.put("terapi", terapi);
@@ -100,24 +98,24 @@ public class TambahRekamMedisDokterActivity extends AppCompatActivity {
         });
     }
 
-    private boolean validate(){
-         boolean valid = true;
-         if (anastesa.isEmpty()){
-             edtAnastesa.setError("Harap Masukan Anastesa!");
-             valid = false;
-         }
-         if (diagnosa.isEmpty()){
-             edtDiagnosa.setError("Harap Masukan Diagnosa!");
-             valid = false;
-         }
-         if (terapi.isEmpty()){
-             edtTerapi.setError("Harap Masukan Terapi!");
-             valid = false;
-         }
-         if (resep.isEmpty()){
-             edtResep.setError("Harap Masukan Resep");
-         }
-          return valid;
+    private boolean validate() {
+        boolean valid = true;
+        if (anastesa.isEmpty()) {
+            edtAnastesa.setError("Harap Masukan Anastesa!");
+            valid = false;
+        }
+        if (diagnosa.isEmpty()) {
+            edtDiagnosa.setError("Harap Masukan Diagnosa!");
+            valid = false;
+        }
+        if (terapi.isEmpty()) {
+            edtTerapi.setError("Harap Masukan Terapi!");
+            valid = false;
+        }
+        if (resep.isEmpty()) {
+            edtResep.setError("Harap Masukan Resep");
+        }
+        return valid;
     }
 
     public void initialize() {

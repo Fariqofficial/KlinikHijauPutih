@@ -14,15 +14,16 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="5dp"
-        android:scrollbars="none"/>
+        android:scrollbars="none" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="130dp"
         android:layout_height="130dp"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_margin="8dp"
+        android:layout_margin="16dp"
         android:backgroundTint="@color/color_main"
-        android:src="@drawable/ic_file"/>
+        android:src="@drawable/ic_file"
+        android:tint="#ffffff" />
 
 </RelativeLayout>
