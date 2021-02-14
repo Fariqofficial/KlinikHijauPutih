@@ -105,6 +105,8 @@ public class EditRekamMedisDokterActivity extends AppCompatActivity {
                         diagnosa.setText(rekMed.getDiagnosa());
                         terapi.setText(rekMed.getTerapi());
                         resep.setText(rekMed.getResep());
+                        id_dokter.setText(rekMed.getId_dokter());
+                        id_pasien.setText(rekMed.getId_pasien());
 
                         dialog.dismiss();
                     }

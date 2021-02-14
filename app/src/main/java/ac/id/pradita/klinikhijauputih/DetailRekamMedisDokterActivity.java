@@ -1,6 +1,7 @@
 package ac.id.pradita.klinikhijauputih;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DataSnapshot;
@@ -64,6 +66,9 @@ public class DetailRekamMedisDokterActivity extends AppCompatActivity {
                 terapi.setText(rm.getTerapi());
                 resep.setText(rm.getResep());
                 tglResep.setText(rm.getTanggal());
+                idRekMedis.setText(rm.getId_rekMedis());
+                idDokter.setText(rm.getId_dokter());
+                idPasien.setText(rm.getId_pasien());
 
                 FirebaseDatabase.getInstance().getReference("Pasien").child(rm.getId_pasien()).addValueEventListener(new ValueEventListener() {
                     @Override
@@ -84,6 +89,31 @@ public class DetailRekamMedisDokterActivity extends AppCompatActivity {
                         Intent intent = new Intent(getApplicationContext(), EditRekamMedisDokterActivity.class);
                         intent.putExtra("id_rekMedis", rm.getId_rekMedis());
                         startActivity(intent);
+                    }
+                });
+
+                hapus.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(DetailRekamMedisDokterActivity.this);
+                        builder.setMessage("Yakin hapus data ini?");
+                        builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                Toast.makeText(getApplicationContext(), "Data berhasil dihapus", Toast.LENGTH_SHORT).show();
+                                FirebaseDatabase.getInstance().getReference("Rekam Medis").child(id_rekamMedis).removeValue();
+                                Intent intent = new Intent(getApplicationContext(), RekamMedisDokterActivity.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(intent);
+                            }
+                        });
+                        builder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+
+                            }
+                        });
+
+                        AlertDialog dialog = builder.create();
+                        dialog.show();
                     }
                 });
             }
