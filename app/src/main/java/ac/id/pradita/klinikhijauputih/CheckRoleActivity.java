@@ -31,16 +31,18 @@ public class CheckRoleActivity extends AppCompatActivity {
     private void getUserLoginData() {
         String emailLoggedIn = mUser.getEmail();
 
-        String emailRole = emailLoggedIn.substring(emailLoggedIn.indexOf("@") + 1, emailLoggedIn.length());
-        Log.d("tess", emailRole);
+        String emailRole = emailLoggedIn.substring(emailLoggedIn.indexOf("@") + 1);
 
         if (emailRole.equals("staff.com")) {
-            Intent waliKelas = new Intent(getApplicationContext(), HomeActivity.class);
-            waliKelas.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(waliKelas);
+            Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
             finish();
         } else {
-            Toast.makeText(getApplicationContext(), "aaaa", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getApplicationContext(), HomeDokterActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            finish();
         }
     }
 }

@@ -14,7 +14,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="5dp"
         android:scrollbars="none"
-        tools:listitem="@layout/item_rekam_medis_staff" />
+        tools:listitem="@layout/item_rekam_medis" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabListPasien"

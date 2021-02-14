@@ -1,13 +1,12 @@
 package ac.id.pradita.klinikhijauputih.model;
 
 public class RekamMedis {
-
-    String nama_pasien, id_rekMedis, id_dokter, id_pasien, anastesa, diagnosa, terapi, resep;
+    String nama_pasien, id_rekMedis, id_dokter, id_pasien, anastesa, diagnosa, terapi, resep, tanggal;
 
     public RekamMedis() {
     }
 
-    public RekamMedis(String nama_pasien, String id_rekMedis, String id_dokter, String id_pasien, String anastesa, String diagnosa, String terapi, String resep) {
+    public RekamMedis(String nama_pasien, String id_rekMedis, String id_dokter, String id_pasien, String anastesa, String diagnosa, String terapi, String resep, String tanggal) {
         this.nama_pasien = nama_pasien;
         this.id_rekMedis = id_rekMedis;
         this.id_dokter = id_dokter;
@@ -16,6 +15,7 @@ public class RekamMedis {
         this.diagnosa = diagnosa;
         this.terapi = terapi;
         this.resep = resep;
+        this.tanggal = tanggal;
     }
 
     public String getNama_pasien() {
@@ -80,5 +80,13 @@ public class RekamMedis {
 
     public void setResep(String resep) {
         this.resep = resep;
+    }
+
+    public String getTanggal() {
+        return tanggal;
+    }
+
+    public void setTanggal(String tanggal) {
+        this.tanggal = tanggal;
     }
 }

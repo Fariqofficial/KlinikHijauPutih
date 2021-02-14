@@ -1,22 +1,22 @@
 package ac.id.pradita.klinikhijauputih;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import ac.id.pradita.klinikhijauputih.model.Pasien;
 import ac.id.pradita.klinikhijauputih.model.RekamMedis;
 
 public class DetailRekamMedisDokterActivity extends AppCompatActivity {
@@ -59,13 +59,24 @@ public class DetailRekamMedisDokterActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 RekamMedis rm = snapshot.getValue(RekamMedis.class);
                 nama_pasien.setText(rm.getNama_pasien());
-              //  idRekMedis.setText(rm.getId_rekMedis());
-              //  idPasien.setText(rm.getId_pasien());
-              //  idDokter.setText(rm.getId_dokter());
                 anastesa.setText(rm.getAnastesa());
                 diagnosa.setText(rm.getDiagnosa());
                 terapi.setText(rm.getTerapi());
                 resep.setText(rm.getResep());
+                tglResep.setText(rm.getTanggal());
+
+                FirebaseDatabase.getInstance().getReference("Pasien").child(rm.getId_pasien()).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        Pasien pasien = snapshot.getValue(Pasien.class);
+                        nama_pasien.setText(pasien.getNama());
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
 
                 edit.setOnClickListener(new View.OnClickListener() {
                     @Override

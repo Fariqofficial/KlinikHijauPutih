@@ -107,6 +107,12 @@ public class HomeActivity extends AppCompatActivity {
                         Intent rekMedis = new Intent(HomeActivity.this, RekamMedisActivity.class);
                         startActivity(rekMedis);
                         break;
+                    case R.id.logOut:
+                        FirebaseAuth.getInstance().signOut();
+                        Intent logout = new Intent(HomeActivity.this, RekamMedisActivity.class);
+                        startActivity(logout);
+                        finish();
+                        break;
                     default:
                         break;
                 }

@@ -1,5 +1,6 @@
 package ac.id.pradita.klinikhijauputih;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
@@ -11,6 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -44,7 +47,7 @@ public class DaftarDokterActivity extends AppCompatActivity {
         etPasswordDokter = findViewById(R.id.passDokter);
         btn_daftar = findViewById(R.id.daftarDokter);
 
-        firebaseAuth = FirebaseAuth.getInstance(FirebaseApp.initializeApp(this));
+        firebaseAuth = FirebaseAuth.getInstance();
 
         dialog = new ProgressDialog(this);
 
@@ -66,7 +69,7 @@ public class DaftarDokterActivity extends AppCompatActivity {
         if (!validate()) {
             Toast.makeText(this, "Gagal Mendaftarkan Dokter!", Toast.LENGTH_LONG).show();
         } else {
-            daftarDokterBerhasil(ktp_dokter, nama_dokter, alamat_dokter, poli_dokter, telp_dokter, email_dokter, pass_dokter);
+            daftarDokterBerhasil(email_dokter, pass_dokter, ktp_dokter, nama_dokter, alamat_dokter, poli_dokter, telp_dokter);
         }
     }
 
@@ -114,38 +117,42 @@ public class DaftarDokterActivity extends AppCompatActivity {
         pass_dokter = etPasswordDokter.getText().toString().trim();
     }
 
-    private void daftarDokterBerhasil(String ktp_dokter, String nama_dokter, String alamat_dokter, String poli_dokter, String telp_dokter, String email_dokter, String pass_dokter) {
+    private void daftarDokterBerhasil(String email_dokter, String pass_dokter, String ktp_dokter, String nama_dokter, String alamat_dokter, String poli_dokter, String telp_dokter) {
         dialog.show();
         dialog.setMessage("Mohon Tunggu..");
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Dokter");
+        firebaseAuth.createUserWithEmailAndPassword(email_dokter, pass_dokter)
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        FirebaseUser user = firebaseAuth.getCurrentUser();
+                        assert user != null;
 
-        DatabaseReference databaseReference = reference.push();
+                        String dokterId = user.getUid();
+                        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Dokter").child(dokterId);
 
-        HashMap<String, Object> hashMap = new HashMap<>();
-        hashMap.put("id_dokter", databaseReference.getKey());
-        hashMap.put("ktp", ktp_dokter);
-        hashMap.put("nama", nama_dokter);
-        hashMap.put("alamat", alamat_dokter);
-        hashMap.put("poli", poli_dokter);
-        hashMap.put("telpon", telp_dokter);
-        hashMap.put("email", email_dokter);
-        hashMap.put("password", pass_dokter);
+                        HashMap<String, Object> hashMap = new HashMap<>();
+                        hashMap.put("id_dokter", dokterId);
+                        hashMap.put("ktp", ktp_dokter);
+                        hashMap.put("nama", nama_dokter);
+                        hashMap.put("alamat", alamat_dokter);
+                        hashMap.put("poli", poli_dokter);
+                        hashMap.put("telpon", telp_dokter);
+                        hashMap.put("email", email_dokter);
+                        hashMap.put("password", pass_dokter);
 
-        databaseReference.setValue(hashMap).addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
-                createAccountDokter(email_dokter, pass_dokter);
-                Toast.makeText(getApplicationContext(), "Berhasil Mendaftarkan Dokter!", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-                startActivity(intent);
-                dialog.dismiss();
-            }
-        });
-    }
-
-    private void createAccountDokter(String email_dokter, String pass_dokter) {
-        firebaseAuth.createUserWithEmailAndPassword(email_dokter, pass_dokter);
-
+                        reference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                FirebaseAuth.getInstance().signOut();
+                                Toast.makeText(getApplicationContext(), "Berhasil Mendaftarkan Dokter!", Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                                startActivity(intent);
+                                dialog.dismiss();
+                                finish();
+                            }
+                        });
+                    }
+                });
     }
 
 }

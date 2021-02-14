@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -63,7 +62,9 @@ public class PasienActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         if (page_request != null) {
                             if (page_request.equals("RM_Dokter")) {
-                                Toast.makeText(getApplicationContext(), "aaaa", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(getApplicationContext(), TambahRekamMedisDokterActivity.class);
+                                intent.putExtra("id_pasien", pasien.getId_pasien());
+                                startActivity(intent);
                             }
                         } else {
                             Intent intent = new Intent(getApplicationContext(), DetailPasienActivity.class);

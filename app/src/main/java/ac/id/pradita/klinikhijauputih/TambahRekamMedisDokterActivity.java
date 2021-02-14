@@ -19,6 +19,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 
 public class TambahRekamMedisDokterActivity extends AppCompatActivity {
@@ -29,7 +32,7 @@ public class TambahRekamMedisDokterActivity extends AppCompatActivity {
     ProgressDialog dialog;
     FirebaseUser user;
     TextView tvIdDokter, tvIdPasien;
-    String str_idDokter, str_idPasien, anastesa, diagnosa, terapi, resep;
+    String id_pasien, anastesa, diagnosa, terapi, resep;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +47,14 @@ public class TambahRekamMedisDokterActivity extends AppCompatActivity {
         edtResep = findViewById(R.id.resep);
         btnTambah = findViewById(R.id.tambahRekMedisDokter);
 
+        id_pasien = getIntent().getStringExtra("id_pasien");
+
         dialog = new ProgressDialog(this);
 
         user = FirebaseAuth.getInstance().getCurrentUser();
+
+        tvIdDokter.setText(user.getUid());
+        tvIdPasien.setText(id_pasien);
 
         reference = FirebaseDatabase.getInstance().getReference();
 
@@ -64,11 +72,11 @@ public class TambahRekamMedisDokterActivity extends AppCompatActivity {
         if (!validate()) {
             Toast.makeText(this, "Gagal Menambahkan Data!", Toast.LENGTH_LONG).show();
         } else {
-            tambahData(str_idDokter, str_idPasien, anastesa, diagnosa, terapi, resep);
+            tambahData(id_pasien, anastesa, diagnosa, terapi, resep);
         }
     }
 
-    private void tambahData(String str_idDokter, String str_idPasien, String anastesa, String diagnosa, String terapi, String resep) {
+    private void tambahData(String idPasien, String anastesa, String diagnosa, String terapi, String resep) {
         dialog.show();
         dialog.setMessage("Mohon Tunggu..");
 
@@ -76,14 +84,20 @@ public class TambahRekamMedisDokterActivity extends AppCompatActivity {
 
         DatabaseReference databaseReference = reference.push();
 
+        Date currentDate = new Date();
+        long currentTime = currentDate.getTime();
+        Timestamp timestamp = new Timestamp(currentTime);
+        String currentTimeStamp = new SimpleDateFormat("dd-MM-yyyy").format(timestamp);
+
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("id_rekMedis", databaseReference.getKey());
-        //  hashMap.put("id_dokter", nomorKTP);
-        //  hashMap.put("id_pasien", namaPasien);
+        hashMap.put("id_dokter", user.getUid());
+        hashMap.put("id_pasien", idPasien);
         hashMap.put("anastesa", anastesa);
         hashMap.put("diagnosa", diagnosa);
         hashMap.put("terapi", terapi);
         hashMap.put("resep", resep);
+        hashMap.put("tanggal", currentTimeStamp);
 
         databaseReference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
@@ -114,13 +128,12 @@ public class TambahRekamMedisDokterActivity extends AppCompatActivity {
         }
         if (resep.isEmpty()) {
             edtResep.setError("Harap Masukan Resep");
+            valid = false;
         }
         return valid;
     }
 
     public void initialize() {
-        str_idDokter = tvIdDokter.getText().toString().trim();
-        str_idPasien = tvIdPasien.getText().toString().trim();
         anastesa = edtAnastesa.getText().toString().trim();
         diagnosa = edtDiagnosa.getText().toString().trim();
         terapi = edtTerapi.getText().toString().trim();

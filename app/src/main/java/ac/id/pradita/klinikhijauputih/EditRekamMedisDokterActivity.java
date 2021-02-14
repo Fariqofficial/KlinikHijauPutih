@@ -1,8 +1,5 @@
 package ac.id.pradita.klinikhijauputih;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -23,8 +23,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 
 import ac.id.pradita.klinikhijauputih.model.RekamMedis;
-
-import static com.google.common.reflect.Reflection.initialize;
 
 public class EditRekamMedisDokterActivity extends AppCompatActivity {
 
@@ -67,11 +65,9 @@ public class EditRekamMedisDokterActivity extends AppCompatActivity {
         dialog.show();
         dialog.setMessage("Updating..");
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Pasien").child(id_rekamMedis);
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Rekam Medis").child(id_rekamMedis);
 
         HashMap<String, Object> hashMap = new HashMap<>();
-       // hashMap.put("id_dokter", idDokter);
-       // hashMap.put("id_pasien", idPasien);
         hashMap.put("anastesa", str_anastesa);
         hashMap.put("diagnosa", str_diagnosa);
         hashMap.put("terapi", str_terapi);
@@ -81,9 +77,8 @@ public class EditRekamMedisDokterActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
-                    Toast.makeText(getApplicationContext(), "Data Berhasil Diubah!", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-                    startActivity(intent);
+                    Toast.makeText(getApplicationContext(), "Data Berhasil Diubah!", Toast.LENGTH_SHORT).show();
+                    EditRekamMedisDokterActivity.super.onBackPressed();
                     dialog.dismiss();
                 }
             }
@@ -91,8 +86,6 @@ public class EditRekamMedisDokterActivity extends AppCompatActivity {
     }
 
     public void initialize() {
-       // idDokter = id_dokter.getText().toString().trim();
-       // idPasien = id_pasien.getText().toString().trim();
         str_anastesa = anastesa.getText().toString().trim();
         str_diagnosa = diagnosa.getText().toString().trim();
         str_terapi = terapi.getText().toString().trim();
@@ -108,8 +101,6 @@ public class EditRekamMedisDokterActivity extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         RekamMedis rekMed = snapshot.getValue(RekamMedis.class);
 
-                      //  id_dokter.setText(rekMed.getId_dokter());
-                      //  id_pasien.setText(rekMed.getId_pasien());
                         anastesa.setText(rekMed.getAnastesa());
                         diagnosa.setText(rekMed.getDiagnosa());
                         terapi.setText(rekMed.getTerapi());
@@ -121,7 +112,8 @@ public class EditRekamMedisDokterActivity extends AppCompatActivity {
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
                         Toast.makeText(getApplicationContext(), "Terjadi Kesalahan, Silahkan Coba Lagi", Toast.LENGTH_SHORT).show();
-                        dialog.dismiss();                    }
+                        dialog.dismiss();
+                    }
                 });
     }
 }
