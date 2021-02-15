@@ -3,6 +3,7 @@ package ac.id.pradita.klinikhijauputih;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -141,5 +142,15 @@ public class TambahRekamMedisDokterActivity extends AppCompatActivity {
         diagnosa = edtDiagnosa.getText().toString().trim();
         terapi = edtTerapi.getText().toString().trim();
         resep = edtResep.getText().toString().trim();
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                super.onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

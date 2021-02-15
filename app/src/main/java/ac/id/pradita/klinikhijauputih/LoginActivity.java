@@ -32,7 +32,6 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         getSupportActionBar().setTitle("Login");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         emailStaff = findViewById(R.id.emailStaff);
         passwordStaff = findViewById(R.id.passwordStaff);

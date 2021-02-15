@@ -26,6 +26,8 @@ public class HomeDokterActivity extends AppCompatActivity {
 
         getSupportActionBar().setTitle("Home");
 
+        drawerLayout = findViewById(R.id.drawerLayout);
+
         menuRekamMedis = findViewById(R.id.menuRekamMedis);
 
         toggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close);
@@ -64,7 +66,8 @@ public class HomeDokterActivity extends AppCompatActivity {
                         break;
                     case R.id.logOut:
                         FirebaseAuth.getInstance().signOut();
-
+                        Intent logout = new Intent(HomeDokterActivity.this, LoginActivity.class);
+                        startActivity(logout);
                         finish();
                         break;
                     default:
@@ -73,5 +76,13 @@ public class HomeDokterActivity extends AppCompatActivity {
                 return true;
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (toggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -110,6 +110,8 @@ public class HomeActivity extends AppCompatActivity {
                         break;
                     case R.id.logOut:
                         FirebaseAuth.getInstance().signOut();
+                        Intent logout = new Intent(HomeActivity.this, LoginActivity.class);
+                        startActivity(logout);
                         finish();
                         break;
                     default:

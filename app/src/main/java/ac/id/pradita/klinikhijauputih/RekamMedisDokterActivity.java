@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -131,6 +132,16 @@ public class RekamMedisDokterActivity extends AppCompatActivity {
         void setTglDibuat(String tanggal_dibuat) {
             tglDibuat = mView.findViewById(R.id.tglDibuat);
             tglDibuat.setText(tanggal_dibuat);
+        }
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                super.onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 }

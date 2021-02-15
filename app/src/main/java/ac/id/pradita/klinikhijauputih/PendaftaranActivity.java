@@ -5,6 +5,7 @@ import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 
 public class PendaftaranActivity extends AppCompatActivity {
     CardView daftarDokter, daftarPasien, daftarJadwal;
@@ -32,5 +33,15 @@ public class PendaftaranActivity extends AppCompatActivity {
         daftarJadwal.setOnClickListener(v -> {
          startActivity(new Intent(getApplicationContext(), DokterActivity.class));
         });
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                super.onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
