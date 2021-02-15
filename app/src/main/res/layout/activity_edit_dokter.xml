@@ -122,54 +122,10 @@
                 android:drawableLeft="@drawable/ic_phone"
                 android:drawablePadding="8dp"/>
 
-            <TextView
-                android:layout_marginTop="10dp"
-                android:id="@+id/txt_emailDokter"
-                android:textColor="@android:color/black"
-                android:layout_below="@id/edtTelpDokter"
-                android:text="Email :"
-                android:layout_marginLeft="8dp"
-                android:textSize="16sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <EditText
-                android:id="@+id/edt_emailDokter"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="3dp"
-                android:layout_below="@id/txt_emailDokter"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_email"
-                android:drawablePadding="5dp"
-                android:inputType="textEmailAddress"/>
-
-            <TextView
-                android:layout_marginTop="10dp"
-                android:id="@+id/txt_passDokter"
-                android:textColor="@android:color/black"
-                android:layout_below="@id/edt_emailDokter"
-                android:text="Password :"
-                android:layout_marginLeft="8dp"
-                android:textSize="16sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <EditText
-                android:id="@+id/edtPassDokter"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="3dp"
-                android:layout_below="@id/txt_passDokter"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:drawableLeft="@drawable/ic_lock"
-                android:drawablePadding="8dp"/>
-
             <RelativeLayout
                 android:id="@+id/relayBtn"
                 android:gravity="center"
-                android:layout_below="@id/edtPassDokter"
+                android:layout_below="@id/edtTelpDokter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 

@@ -43,7 +43,7 @@ public class RekamMedisActivity extends AppCompatActivity {
         rvRekamMedis.setLayoutManager(new LinearLayoutManager(this));
         reference = FirebaseDatabase.getInstance().getReference();
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        
+
         getData();
 
     }
@@ -53,14 +53,16 @@ public class RekamMedisActivity extends AppCompatActivity {
         mQuery.keepSynced(true);
 
         FirebaseRecyclerAdapter<RekamMedis, ListRekamMedisViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<RekamMedis, ListRekamMedisViewHolder>
-        (RekamMedis.class, R.layout.item_rekam_medis, ListRekamMedisViewHolder.class, mQuery) {
+                (RekamMedis.class, R.layout.item_rekam_medis, ListRekamMedisViewHolder.class, mQuery) {
             @Override
             protected void populateViewHolder(ListRekamMedisViewHolder listRekamMedisViewHolder, RekamMedis rekamMedis, int i) {
                 FirebaseDatabase.getInstance().getReference("Pasien").child(rekamMedis.getId_pasien()).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        Pasien pasien = snapshot.getValue(Pasien.class);
-                        listRekamMedisViewHolder.setNamaPasien(pasien.getNama());
+                        if (snapshot.exists()) {
+                            Pasien pasien = snapshot.getValue(Pasien.class);
+                            listRekamMedisViewHolder.setNamaPasien(pasien.getNama());
+                        }
                     }
 
                     @Override
@@ -72,8 +74,10 @@ public class RekamMedisActivity extends AppCompatActivity {
                 FirebaseDatabase.getInstance().getReference("Dokter").child(rekamMedis.getId_dokter()).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        Dokter dokter = snapshot.getValue(Dokter.class);
-                        listRekamMedisViewHolder.setNamaDokter(dokter.getNama());
+                        if (snapshot.exists()) {
+                            Dokter dokter = snapshot.getValue(Dokter.class);
+                            listRekamMedisViewHolder.setNamaDokter(dokter.getNama());
+                        }
                     }
 
                     @Override
@@ -87,7 +91,7 @@ public class RekamMedisActivity extends AppCompatActivity {
                 listRekamMedisViewHolder.mView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(getApplicationContext(), DetailRekamMedisDokterActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), DetailRekamMedis.class);
                         intent.putExtra("id_rekMedis", rekamMedis.getId_rekMedis());
                         startActivity(intent);
                     }

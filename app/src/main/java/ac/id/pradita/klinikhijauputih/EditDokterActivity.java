@@ -27,7 +27,7 @@ import ac.id.pradita.klinikhijauputih.model.Dokter;
 import static com.google.common.reflect.Reflection.initialize;
 
 public class EditDokterActivity extends AppCompatActivity {
-    EditText etKTPDokter, etNamaDokter, etAlamatDokter, etPoliDokter, etTelponDokter, etEmailDokter, etPassword;
+    EditText etKTPDokter, etNamaDokter, etAlamatDokter, etPoliDokter, etTelponDokter;
     ProgressDialog dialog;
     Button btnEdit;
     String id_dokter, ktp_dokter, nama_dokter, alamat_dokter, poli_dokter, telp_dokter, email_dokter, pass_dokter;
@@ -45,8 +45,6 @@ public class EditDokterActivity extends AppCompatActivity {
         etAlamatDokter = findViewById(R.id.edtAlamatDokter);
         etPoliDokter = findViewById(R.id.edtPoliDokter);
         etTelponDokter = findViewById(R.id.edtTelpDokter);
-        etEmailDokter = findViewById(R.id.edt_emailDokter);
-        etPassword = findViewById(R.id.edtPassDokter);
         btnEdit = findViewById(R.id.editDataDokter);
 
         id_dokter = getIntent().getStringExtra("id_dokter");
@@ -75,8 +73,6 @@ public class EditDokterActivity extends AppCompatActivity {
         hashMap.put("alamat", alamat_dokter);
         hashMap.put("poli", poli_dokter);
         hashMap.put("telpon", telp_dokter);
-        hashMap.put("email", email_dokter);
-        hashMap.put("password", pass_dokter);
 
         reference.updateChildren(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
@@ -97,8 +93,6 @@ public class EditDokterActivity extends AppCompatActivity {
         alamat_dokter = etAlamatDokter.getText().toString().trim();
         poli_dokter = etPoliDokter.getText().toString().trim();
         telp_dokter = etTelponDokter.getText().toString().trim();
-        email_dokter = etEmailDokter.getText().toString().trim();
-        pass_dokter = etPassword.getText().toString().trim();
     }
 
     private void getDataDokter(String id_dokter) {
@@ -116,8 +110,6 @@ public class EditDokterActivity extends AppCompatActivity {
                         etAlamatDokter.setText(dokter.getAlamat());
                         etPoliDokter.setText(dokter.getPoli());
                         etTelponDokter.setText(dokter.getTelpon());
-                        etEmailDokter.setText(dokter.getEmail());
-                        etPassword.setText(dokter.getPassword());
 
                         dialog.dismiss();
                     }

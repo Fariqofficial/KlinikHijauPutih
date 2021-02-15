@@ -72,8 +72,10 @@ public class RekamMedisDokterActivity extends AppCompatActivity {
                 FirebaseDatabase.getInstance().getReference("Pasien").child(rekamMedis.getId_pasien()).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        Pasien pasien = snapshot.getValue(Pasien.class);
-                        listRekamMedisViewHolder.setNamaPasien(pasien.getNama());
+                        if (snapshot.exists()) {
+                            Pasien pasien = snapshot.getValue(Pasien.class);
+                            listRekamMedisViewHolder.setNamaPasien(pasien.getNama());
+                        }
                     }
 
                     @Override
@@ -85,8 +87,10 @@ public class RekamMedisDokterActivity extends AppCompatActivity {
                 FirebaseDatabase.getInstance().getReference("Dokter").child(firebaseUser.getUid()).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        Dokter dokter = snapshot.getValue(Dokter.class);
-                        listRekamMedisViewHolder.setNamaDokter(dokter.getNama());
+                        if (snapshot.exists()) {
+                            Dokter dokter = snapshot.getValue(Dokter.class);
+                            listRekamMedisViewHolder.setNamaDokter(dokter.getNama());
+                        }
                     }
 
                     @Override

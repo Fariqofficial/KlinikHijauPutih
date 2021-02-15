@@ -12,16 +12,18 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import ac.id.pradita.klinikhijauputih.model.Pasien;
 import ac.id.pradita.klinikhijauputih.model.RekamMedis;
 
 public class DetailRekamMedis extends AppCompatActivity {
     TextView nama_pasien, idRekMedis, idPasien, idDokter, anastesa, diagnosa, terapi, resep, tglResep;
-    Button print;
+    FloatingActionButton print;
     ProgressDialog dialog;
     String id_rekamMedis;
 
@@ -60,7 +62,6 @@ public class DetailRekamMedis extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 RekamMedis rm = snapshot.getValue(RekamMedis.class);
-                nama_pasien.setText(rm.getNama_pasien());
                 anastesa.setText(rm.getAnastesa());
                 diagnosa.setText(rm.getDiagnosa());
                 terapi.setText(rm.getTerapi());
@@ -70,11 +71,29 @@ public class DetailRekamMedis extends AppCompatActivity {
                 idDokter.setText(rm.getId_dokter());
                 idPasien.setText(rm.getId_pasien());
 
+                FirebaseDatabase.getInstance().getReference("Pasien").child(rm.getId_pasien()).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            if (snapshot.exists()) {
+                                Pasien pasien = snapshot.getValue(Pasien.class);
+                                nama_pasien.setText(pasien.getNama());
+                            }
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
                 print.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
 
-                    //Kodingan buat print ke PDF nya
+                        //Kodingan buat print ke PDF nya
 
                     }
                 });

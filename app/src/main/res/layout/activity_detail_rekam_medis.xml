@@ -9,230 +9,233 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cvDetailRekMedis"
-        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="345dp"
-        app:cardElevation="3dp"
-        app:cardCornerRadius="8dp"
         android:layout_margin="8dp"
-        android:backgroundTint="@color/color_main">
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/color_main"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="3dp">
 
         <TextView
             android:id="@+id/nama_pasien"
-            android:layout_marginTop="15dp"
-            android:textColor="@android:color/white"
-            android:textSize="25sp"
-            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nama Pasien"/>
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="-"
+            android:textColor="@android:color/white"
+            android:textSize="25sp" />
 
         <RelativeLayout
-            android:layout_marginTop="65dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="65dp">
 
             <TextView
-                android:layout_marginLeft="6dp"
                 android:id="@+id/txt_idRekMedis"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ID Rekam Medis :"/>
+                android:layout_marginLeft="6dp"
+                android:text="ID Rekam Medis :"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
 
             <TextView
-                android:layout_toRightOf="@id/txt_idRekMedis"
-                android:layout_marginLeft="10dp"
                 android:id="@+id/idRekMedis"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nomor ID"/>
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/txt_idRekMedis"
+                android:maxLines="1"
+                android:text="Nomor ID"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
 
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_marginTop="100dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp">
 
             <TextView
-                android:layout_marginLeft="6dp"
                 android:id="@+id/txt_idPasien"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ID Pasien :"/>
+                android:layout_marginLeft="6dp"
+                android:text="ID Pasien :"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
 
             <TextView
-                android:layout_toRightOf="@id/txt_idPasien"
-                android:layout_marginLeft="10dp"
                 android:id="@+id/idPasien"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nomor ID"/>
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/txt_idPasien"
+                android:maxLines="1"
+                android:text="Nomor ID"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
 
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_marginTop="135dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="135dp">
 
             <TextView
-                android:layout_marginLeft="6dp"
                 android:id="@+id/txt_idDokter"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ID Dokter :"/>
+                android:layout_marginLeft="6dp"
+                android:text="ID Dokter :"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
 
             <TextView
-                android:layout_toRightOf="@id/txt_idDokter"
-                android:layout_marginLeft="10dp"
                 android:id="@+id/idDokter"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nomor ID"/>
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/txt_idDokter"
+                android:maxLines="1"
+                android:text="Nomor ID"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
 
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_marginTop="170dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="170dp">
 
             <TextView
-                android:layout_marginLeft="6dp"
                 android:id="@+id/txt_anastesa"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Anastesa :"/>
+                android:layout_marginLeft="6dp"
+                android:text="Anastesa :"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
 
             <TextView
-                android:layout_toRightOf="@id/txt_anastesa"
-                android:layout_marginLeft="10dp"
                 android:id="@+id/anastesa"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Anastesa"/>
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/txt_anastesa"
+                android:text="Anastesa"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
 
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_marginTop="205dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="205dp">
 
             <TextView
-                android:layout_marginLeft="6dp"
                 android:id="@+id/txt_diagnosa"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Diagnosa :"/>
+                android:layout_marginLeft="6dp"
+                android:text="Diagnosa :"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
 
             <TextView
-                android:layout_toRightOf="@id/txt_diagnosa"
-                android:layout_marginLeft="10dp"
                 android:id="@+id/diagnosa"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nama Penyakit"/>
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/txt_diagnosa"
+                android:text="Nama Penyakit"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
 
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_marginTop="240dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="240dp">
 
             <TextView
-                android:layout_marginLeft="6dp"
                 android:id="@+id/txt_terapi"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Terapi :"/>
+                android:layout_marginLeft="6dp"
+                android:text="Terapi :"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
 
             <TextView
-                android:layout_toRightOf="@id/txt_terapi"
-                android:layout_marginLeft="10dp"
                 android:id="@+id/terapi"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nama Terapi"/>
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/txt_terapi"
+                android:text="Nama Terapi"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
 
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_marginTop="275dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="275dp">
 
             <TextView
-                android:layout_marginLeft="6dp"
                 android:id="@+id/txt_resep"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Resep :"/>
+                android:layout_marginLeft="6dp"
+                android:text="Resep :"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
 
             <TextView
-                android:layout_toRightOf="@id/txt_resep"
-                android:layout_marginLeft="10dp"
                 android:id="@+id/resep"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/txt_resep"
+                android:maxLines="2"
                 android:text="Nama Resep"
-                android:maxLines="2"/>
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
 
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_marginTop="310dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="310dp">
 
             <TextView
-                android:layout_marginLeft="6dp"
                 android:id="@+id/txt_tglresep"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tanggal Dibuat :"/>
+                android:layout_marginLeft="6dp"
+                android:text="Tanggal Dibuat :"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
 
             <TextView
-                android:layout_toRightOf="@id/txt_tglresep"
-                android:layout_marginLeft="10dp"
                 android:id="@+id/tglResep"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="DD/MM/YY"/>
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/txt_tglresep"
+                android:text="DD/MM/YY"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
 
         </RelativeLayout>
 
@@ -240,13 +243,13 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/print"
-        android:src="@drawable/ic_file_white"
-        android:clickable="true"
-        android:backgroundTint="@color/color_main"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_margin="8dp"
         android:layout_width="140dp"
-        android:layout_height="140dp"/>
+        android:layout_height="140dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="8dp"
+        android:backgroundTint="@color/color_main"
+        android:clickable="true"
+        android:src="@drawable/ic_file_white" />
 
 </RelativeLayout>

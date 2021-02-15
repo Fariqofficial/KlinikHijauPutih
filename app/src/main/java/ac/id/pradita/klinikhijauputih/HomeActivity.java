@@ -26,7 +26,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle toggle;
-    TextView namaStaff;
+    TextView namaStaff, nomorId;
     DatabaseReference reference;
     ProgressDialog dialog;
     FirebaseUser user;
@@ -41,6 +41,9 @@ public class HomeActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Home");
 
         namaStaff = findViewById(R.id.Staff);
+        nomorId = findViewById(R.id.nomorId);
+
+        nomorId.setText(FirebaseAuth.getInstance().getCurrentUser().getEmail());
 
         drawerLayout = findViewById(R.id.drawerLayout);
 

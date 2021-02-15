@@ -64,7 +64,6 @@ public class DetailRekamMedisDokterActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 RekamMedis rm = snapshot.getValue(RekamMedis.class);
-                nama_pasien.setText(rm.getNama_pasien());
                 anastesa.setText(rm.getAnastesa());
                 diagnosa.setText(rm.getDiagnosa());
                 terapi.setText(rm.getTerapi());
@@ -77,8 +76,11 @@ public class DetailRekamMedisDokterActivity extends AppCompatActivity {
                 FirebaseDatabase.getInstance().getReference("Pasien").child(rm.getId_pasien()).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        Pasien pasien = snapshot.getValue(Pasien.class);
-                        nama_pasien.setText(pasien.getNama());
+                        if (snapshot.exists()){
+                            Pasien pasien = snapshot.getValue(Pasien.class);
+                            nama_pasien.setText(pasien.getNama());
+                        }
+
                     }
 
                     @Override
