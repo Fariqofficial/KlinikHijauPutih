@@ -39,6 +39,9 @@ public class TambahRekamMedisDokterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tambah_rekam_medis_dokter);
 
+        getSupportActionBar().setTitle("Tambah Rekam Medis");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         tvIdDokter = findViewById(R.id.id_dokter);
         tvIdPasien = findViewById(R.id.id_pasien);
         edtAnastesa = findViewById(R.id.anastesa);

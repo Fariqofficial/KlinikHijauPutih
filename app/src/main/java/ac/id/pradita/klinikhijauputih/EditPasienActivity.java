@@ -37,6 +37,9 @@ public class EditPasienActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_pasien);
 
+        getSupportActionBar().setTitle("Edit Pasien");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         etNomorKtpPasien = findViewById(R.id.editKtpPasien);
         etNamaPasien = findViewById(R.id.editNamaPasien);
         etAlamatPasien = findViewById(R.id.edtAlamatPasien);

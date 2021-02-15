@@ -20,7 +20,7 @@ import ac.id.pradita.klinikhijauputih.model.RekamMedis;
 
 public class DetailRekamMedis extends AppCompatActivity {
     TextView nama_pasien, idRekMedis, idPasien, idDokter, anastesa, diagnosa, terapi, resep, tglResep;
-    Button edit, hapus;
+    Button print;
     ProgressDialog dialog;
     String id_rekamMedis;
 
@@ -28,6 +28,9 @@ public class DetailRekamMedis extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_rekam_medis);
+
+        getSupportActionBar().setTitle("Detail Rekam Medis");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         nama_pasien = findViewById(R.id.nama_pasien);
         idRekMedis = findViewById(R.id.idRekMedis);
@@ -38,8 +41,7 @@ public class DetailRekamMedis extends AppCompatActivity {
         terapi = findViewById(R.id.terapi);
         resep = findViewById(R.id.resep);
         tglResep = findViewById(R.id.tglResep);
-        edit = findViewById(R.id.editDtlRekMedis);
-        hapus = findViewById(R.id.hapusDtlRekMedis);
+        print = findViewById(R.id.print);
 
         id_rekamMedis = getIntent().getStringExtra("id_rekMedis");
 
@@ -58,20 +60,21 @@ public class DetailRekamMedis extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 RekamMedis rm = snapshot.getValue(RekamMedis.class);
                 nama_pasien.setText(rm.getNama_pasien());
-                //  idRekMedis.setText(rm.getId_rekMedis());
-                //  idPasien.setText(rm.getId_pasien());
-                //  idDokter.setText(rm.getId_dokter());
                 anastesa.setText(rm.getAnastesa());
                 diagnosa.setText(rm.getDiagnosa());
                 terapi.setText(rm.getTerapi());
                 resep.setText(rm.getResep());
+                tglResep.setText(rm.getTanggal());
+                idRekMedis.setText(rm.getId_rekMedis());
+                idDokter.setText(rm.getId_dokter());
+                idPasien.setText(rm.getId_pasien());
 
-                edit.setOnClickListener(new View.OnClickListener() {
+                print.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(getApplicationContext(), EditRekamMedisDokterActivity.class);
-                        intent.putExtra("id_rekMedis", rm.getId_rekMedis());
-                        startActivity(intent);
+
+                    //Kodingan buat print ke PDF nya
+
                     }
                 });
             }

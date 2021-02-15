@@ -37,6 +37,9 @@ public class EditRekamMedisDokterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_rekam_medis_dokter);
 
+        getSupportActionBar().setTitle("Edit Rekam Medis");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         id_dokter = findViewById(R.id.id_dokter);
         id_pasien = findViewById(R.id.id_pasien);
         anastesa = findViewById(R.id.edtAnastesa);

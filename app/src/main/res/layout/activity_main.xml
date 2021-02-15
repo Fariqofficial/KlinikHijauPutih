@@ -7,5 +7,61 @@
     android:background="#E9FFE1"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="175dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/logo" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/loginStaff"
+        android:clickable="true"
+        android:backgroundTint="@color/color_main"
+        android:layout_marginTop="35dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:cardElevation="3dp"
+        app:cardCornerRadius="8dp"
+        android:layout_below="@id/imgLogo">
+
+        <TextView
+            android:layout_marginTop="30dp"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:text="Login Staff"
+            android:textColor="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/loginDokter"
+        android:clickable="true"
+        android:backgroundTint="@color/color_main"
+        android:layout_marginTop="35dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:cardElevation="3dp"
+        app:cardCornerRadius="8dp"
+        android:layout_below="@id/loginStaff">
+
+        <TextView
+            android:layout_marginTop="30dp"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:text="Login Dokter"
+            android:textColor="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </androidx.cardview.widget.CardView>
 
 </RelativeLayout>

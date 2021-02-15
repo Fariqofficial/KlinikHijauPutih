@@ -36,6 +36,9 @@ public class EditDokterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_dokter);
 
+        getSupportActionBar().setTitle("Edit Dokter");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         etKTPDokter = findViewById(R.id.edtKTPDokter);
         etNamaDokter = findViewById(R.id.edt_namaDokter);
         etAlamatDokter = findViewById(R.id.edtAlamatDokter);

@@ -1,9 +1,11 @@
 package ac.id.pradita.klinikhijauputih;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,6 +32,9 @@ public class DetailDokterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_dokter);
 
+        getSupportActionBar().setTitle("Detail Dokter & Jadwal");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         tvNama = findViewById(R.id.nama_dokter);
         tvNoKtp = findViewById(R.id.nomorKTPDokter);
         tvAlamat = findViewById(R.id.alamatDokter);
@@ -37,6 +42,7 @@ public class DetailDokterActivity extends AppCompatActivity {
         tvPoli = findViewById(R.id.poliDokter);
         tvEmail = findViewById(R.id.emailDokter);
         edit = findViewById(R.id.editDtlDokter);
+        hapus = findViewById(R.id.hapusDtlDokter);
         perbaruiJadwal = findViewById(R.id.editJadwalDokter);
         tvHariPraktek = findViewById(R.id.hariPraktek);
 
@@ -81,6 +87,31 @@ public class DetailDokterActivity extends AppCompatActivity {
                         Intent intent = new Intent(getApplicationContext(), EditDokterActivity.class);
                         intent.putExtra("id_dokter", dokter.getId_dokter());
                         startActivity(intent);
+                    }
+                });
+
+                hapus.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(DetailDokterActivity.this);
+                        builder.setMessage("Apakah Anda Yakin Hapus Data Ini?");
+                        builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                Toast.makeText(getApplicationContext(), "Data Berhasil Dihapus", Toast.LENGTH_SHORT).show();
+                                FirebaseDatabase.getInstance().getReference("Dokter").child(id_dokter).removeValue();
+                                Intent intent = new Intent(getApplicationContext(), RekamMedisDokterActivity.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(intent);
+                            }
+                        });
+                        builder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+
+                            }
+                        });
+
+                        AlertDialog dialog = builder.create();
+                        dialog.show();
                     }
                 });
             }

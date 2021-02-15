@@ -15,6 +15,7 @@ public class PendaftaranActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pendaftaran);
 
         getSupportActionBar().setTitle("Pendaftaran");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         daftarDokter = findViewById(R.id.pendaftaranDokter);
         daftarPasien = findViewById(R.id.pendaftaranPasien);

@@ -35,6 +35,9 @@ public class DaftarPasienActivity extends AppCompatActivity implements AdapterVi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daftar_pasien);
 
+        getSupportActionBar().setTitle("Daftar Pasien");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         no_ktp = findViewById(R.id.no_KtpPasien);
         nama_pasien = findViewById(R.id.namaPasien);
         alamat_rumah = findViewById(R.id.alamatPasien);

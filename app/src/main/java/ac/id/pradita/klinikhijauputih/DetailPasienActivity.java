@@ -1,9 +1,11 @@
 package ac.id.pradita.klinikhijauputih;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -33,6 +35,9 @@ public class DetailPasienActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_pasien);
+
+        getSupportActionBar().setTitle("Detail Pasien");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         tvKTP = findViewById(R.id.ktpPasien);
         tvNama = findViewById(R.id.namaPasien);
@@ -80,6 +85,31 @@ public class DetailPasienActivity extends AppCompatActivity {
                         Intent intent = new Intent(getApplicationContext(), EditPasienActivity.class);
                         intent.putExtra("id_pasien", pasien.getId_pasien());
                         startActivity(intent);
+                    }
+                });
+
+                hapus.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(DetailPasienActivity.this);
+                        builder.setMessage("Apakah Anda Yakin Hapus Data Ini?");
+                        builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                Toast.makeText(getApplicationContext(), "Data Berhasil Dihapus", Toast.LENGTH_SHORT).show();
+                                FirebaseDatabase.getInstance().getReference("Pasien").child(id_pasien).removeValue();
+                                Intent intent = new Intent(getApplicationContext(), RekamMedisDokterActivity.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(intent);
+                            }
+                        });
+                        builder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+
+                            }
+                        });
+
+                        AlertDialog dialog = builder.create();
+                        dialog.show();
                     }
                 });
 

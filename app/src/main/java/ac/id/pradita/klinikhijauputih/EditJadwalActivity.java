@@ -38,6 +38,9 @@ public class EditJadwalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_jadwal);
 
+        getSupportActionBar().setTitle("Daftar Jadwal Dokter");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         hari = findViewById(R.id.hariPraktek);
         keterangan = findViewById(R.id.keterangan);
         btn_tambah = findViewById(R.id.tambahJadwal);

@@ -25,6 +25,9 @@ public class DokterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dokter);
+
+        getSupportActionBar().setTitle("Dokter");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         
         rv_dokter = findViewById(R.id.rvDokter);
         rv_dokter.setLayoutManager(new LinearLayoutManager(this));

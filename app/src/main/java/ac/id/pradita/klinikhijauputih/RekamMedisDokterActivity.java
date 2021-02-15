@@ -36,6 +36,9 @@ public class RekamMedisDokterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rekam_medis_dokter);
 
+        getSupportActionBar().setTitle("Rekam Medis Dokter");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         rvRekMedisDokter = findViewById(R.id.rvRekMedisDokter);
 
         rvRekMedisDokter.setLayoutManager(new LinearLayoutManager(this));
@@ -62,8 +65,7 @@ public class RekamMedisDokterActivity extends AppCompatActivity {
         mQuery.keepSynced(true);
 
         FirebaseRecyclerAdapter<RekamMedis, ListRekamMedisViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<RekamMedis, ListRekamMedisViewHolder>(
-                RekamMedis.class, R.layout.item_rekam_medis, ListRekamMedisViewHolder.class, mQuery
-        ) {
+                RekamMedis.class, R.layout.item_rekam_medis, ListRekamMedisViewHolder.class, mQuery) {
             @Override
             protected void populateViewHolder(ListRekamMedisViewHolder listRekamMedisViewHolder, RekamMedis rekamMedis, int i) {
                 FirebaseDatabase.getInstance().getReference("Pasien").child(rekamMedis.getId_pasien()).addValueEventListener(new ValueEventListener() {

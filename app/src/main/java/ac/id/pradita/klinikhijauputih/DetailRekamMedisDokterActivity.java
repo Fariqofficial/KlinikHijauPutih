@@ -32,6 +32,9 @@ public class DetailRekamMedisDokterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_rekam_medis_dokter);
 
+        getSupportActionBar().setTitle("Detail Rekam Medis");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         nama_pasien = findViewById(R.id.nama_pasien);
         idRekMedis = findViewById(R.id.idRekMedis);
         idPasien = findViewById(R.id.idPasien);
@@ -96,10 +99,10 @@ public class DetailRekamMedisDokterActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         AlertDialog.Builder builder = new AlertDialog.Builder(DetailRekamMedisDokterActivity.this);
-                        builder.setMessage("Yakin hapus data ini?");
+                        builder.setMessage("Apakah Anda Yakin Hapus Data Ini?");
                         builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                Toast.makeText(getApplicationContext(), "Data berhasil dihapus", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "Data Berhasil Dihapus", Toast.LENGTH_SHORT).show();
                                 FirebaseDatabase.getInstance().getReference("Rekam Medis").child(id_rekamMedis).removeValue();
                                 Intent intent = new Intent(getApplicationContext(), RekamMedisDokterActivity.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);

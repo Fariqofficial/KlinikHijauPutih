@@ -55,6 +55,7 @@ public class HomeActivity extends AppCompatActivity {
         toggle.syncState();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
 
     private void getNamaStaff() {
@@ -109,8 +110,6 @@ public class HomeActivity extends AppCompatActivity {
                         break;
                     case R.id.logOut:
                         FirebaseAuth.getInstance().signOut();
-                        Intent logout = new Intent(HomeActivity.this, RekamMedisActivity.class);
-                        startActivity(logout);
                         finish();
                         break;
                     default:

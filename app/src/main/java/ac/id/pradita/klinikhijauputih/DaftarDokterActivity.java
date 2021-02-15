@@ -38,6 +38,9 @@ public class DaftarDokterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daftar_dokter);
 
+        getSupportActionBar().setTitle("Daftar Dokter");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         etNoKTP = findViewById(R.id.nomorKTPDokter);
         etNamaDokter = findViewById(R.id.nama_dokter);
         etAlamatDokter = findViewById(R.id.alamatDokter);

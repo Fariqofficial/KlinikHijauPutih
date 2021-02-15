@@ -195,7 +195,7 @@
         android:layout_gravity="center"
         android:layout_margin="8dp"
         android:layout_marginBottom="4dp"
-        android:background="@drawable/btn_shape_green"
+        android:background="@drawable/btn_tambah_jadwal"
         android:clickable="true"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"

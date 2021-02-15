@@ -29,6 +29,9 @@ public class PasienActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pasien);
 
+        getSupportActionBar().setTitle("Pasien");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         page_request = getIntent().getStringExtra("page_request");
         rv_pasien = findViewById(R.id.rvPasien);
 
