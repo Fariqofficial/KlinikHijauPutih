@@ -31,46 +31,58 @@
                 android:textColor="@android:color/white"
                 android:textSize="30sp" />
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="70dp">
+
             <TextView
                 android:id="@+id/namaStaff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-                android:layout_marginTop="70dp"
                 android:text="Nama Staff :"
                 android:textColor="@android:color/white"
                 android:textSize="22sp" />
 
             <TextView
                 android:id="@+id/Staff"
+                android:layout_toRightOf="@id/namaStaff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="140dp"
-                android:layout_marginTop="70dp"
+                android:layout_marginLeft="14dp"
                 android:text="Staff"
                 android:textColor="@android:color/white"
                 android:textSize="22sp" />
 
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="115dp">
+
             <TextView
-                android:id="@+id/idStaff"
+                android:id="@+id/emailStaff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-                android:layout_marginTop="120dp"
                 android:text="Email :"
                 android:textColor="@android:color/white"
                 android:textSize="22sp" />
 
 
             <TextView
-                android:id="@+id/nomorId"
+                android:id="@+id/email_staff"
+                android:layout_toRightOf="@id/emailStaff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="100dp"
-                android:layout_marginTop="120dp"
-                android:text="Nomor ID"
+                android:layout_marginLeft="10dp"
+                android:text="Alamat Email"
                 android:textColor="@android:color/white"
                 android:textSize="22sp" />
+
+            </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
 

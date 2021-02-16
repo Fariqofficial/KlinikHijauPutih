@@ -7,12 +7,56 @@
     android:background="#E9FFE1"
     tools:context=".RekamMedisActivity">
 
+    <LinearLayout
+        android:id="@+id/linearLayoutRekMedis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/tglDari"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/datepicker_shape"
+            android:hint="Dari.."
+            android:inputType="text"
+            android:paddingLeft="16dp" />
+
+        <EditText
+            android:id="@+id/tglSampai"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/datepicker_shape"
+            android:hint="Sampai.."
+            android:inputType="text"
+            android:paddingLeft="16dp" />
+
+        <Button
+            android:id="@+id/filter"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_shape_green"
+            android:hint="Filter"
+            android:textColorHint="@android:color/white"
+            android:inputType="text"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvRekamMedis"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_below="@id/linearLayoutRekMedis"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="5dp"
+        tools:listitem="@layout/item_rekam_medis"
         android:scrollbars="none" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

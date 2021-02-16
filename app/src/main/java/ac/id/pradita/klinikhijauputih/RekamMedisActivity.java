@@ -1,14 +1,21 @@
 package ac.id.pradita.klinikhijauputih;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.DatePickerDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -21,6 +28,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+
 import ac.id.pradita.klinikhijauputih.model.Dokter;
 import ac.id.pradita.klinikhijauputih.model.Pasien;
 import ac.id.pradita.klinikhijauputih.model.RekamMedis;
@@ -29,8 +41,16 @@ public class RekamMedisActivity extends AppCompatActivity {
     RecyclerView rvRekamMedis;
     DatabaseReference reference;
     FirebaseUser firebaseUser;
+    EditText dari, sampai;
+    Button btn_filter;
+    Calendar calendar = Calendar.getInstance();
+    Locale id = new Locale("in", "ID");
+    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MMMM-YYYY", id);
+    Date date_min, date_max;
+    Context context;
 
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +59,12 @@ public class RekamMedisActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Rekam Medis Staff");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        sampai = findViewById(R.id.tglSampai);
+        dari = findViewById(R.id.tglDari);
+        btn_filter = findViewById(R.id.filter);
+
+        context = this;
+
         rvRekamMedis = findViewById(R.id.rvRekamMedis);
         rvRekamMedis.setLayoutManager(new LinearLayoutManager(this));
         reference = FirebaseDatabase.getInstance().getReference();
@@ -46,6 +72,49 @@ public class RekamMedisActivity extends AppCompatActivity {
 
         getData();
 
+        dari.setOnClickListener(v -> {
+            DatePickerDialog datePickerDialog = new DatePickerDialog(context, new DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                    calendar.set(year, month, dayOfMonth);
+                    dari.setText(simpleDateFormat.format(calendar.getTime()));
+                    date_min = calendar.getTime();
+
+                    String tgl1 = dari.getText().toString();
+                    String tgl2 = sampai.getText().toString();
+                    if (tgl1.isEmpty() && tgl2.isEmpty()) {
+                        btn_filter.setEnabled(false);
+                    } else {
+                        btn_filter.setEnabled(true);
+                    }
+                }
+            }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+            datePickerDialog.show();
+        });
+
+        sampai.setOnClickListener(v -> {
+            DatePickerDialog datePickerDialog = new DatePickerDialog(context, new DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                    calendar.set(year, month, dayOfMonth);
+                    sampai.setText(simpleDateFormat.format(calendar.getTime()));
+                    date_max = calendar.getTime();
+
+                    String tgl1 = sampai.getText().toString();
+                    String tgl2 = dari.getText().toString();
+                    if (tgl1.isEmpty() && tgl2.isEmpty()) {
+                        btn_filter.setEnabled(false);
+                    } else {
+                        btn_filter.setEnabled(true);
+                    }
+                }
+            }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+            datePickerDialog.show();
+        });
+
+        btn_filter.setOnClickListener(v -> {
+            //Kodingan Fungsi Filter
+        });
     }
 
     private void getData() {
