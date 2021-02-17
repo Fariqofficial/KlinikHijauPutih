@@ -34,7 +34,7 @@ public class PrintDetailRekamMedis extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_print_detail_rekam_medis);
 
-        getSupportActionBar().setTitle("Detail Rekam Medis");
+        getSupportActionBar().setTitle("Print Detail Rekam Medis");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         nama_pasien = findViewById(R.id.nama_pasien);
@@ -118,6 +118,7 @@ public class PrintDetailRekamMedis extends AppCompatActivity {
             document.writeTo(new FileOutputStream(mypath));
             document.close();
             Toast.makeText(this, "Berkas PDF berhasil dibuat", Toast.LENGTH_LONG).show();
+            super.onBackPressed();
         } catch (IOException e) {
             e.printStackTrace();
             Toast.makeText(this, "Something wrong: " + e.toString(), Toast.LENGTH_LONG).show();
