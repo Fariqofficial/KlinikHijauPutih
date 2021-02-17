@@ -89,13 +89,18 @@ public class DetailRekamMedis extends AppCompatActivity {
                     }
                 });
 
-                print.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                        //Kodingan buat print ke PDF nya
-
-                    }
+                print.setOnClickListener(v -> {
+                    Intent intent = new Intent(getApplicationContext(), PrintDetailRekamMedis.class);
+                    intent.putExtra("nama_pasien", nama_pasien.getText().toString().trim());
+                    intent.putExtra("anastesa", rm.getAnastesa());
+                    intent.putExtra("diagnosa", rm.getDiagnosa());
+                    intent.putExtra("terapi", rm.getTerapi());
+                    intent.putExtra("resep", rm.getResep());
+                    intent.putExtra("tanggal", rm.getTanggal());
+                    intent.putExtra("id_rekMedis", rm.getId_rekMedis());
+                    intent.putExtra("id_dokter", rm.getId_dokter());
+                    intent.putExtra("id_pasien", rm.getId_pasien());
+                    startActivity(intent);
                 });
             }
 
