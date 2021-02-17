@@ -1,24 +1,35 @@
 package ac.id.pradita.klinikhijauputih;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.pdf.PdfDocument;
 import android.os.Bundle;
+import android.os.Environment;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -28,6 +39,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -45,12 +59,13 @@ public class RekamMedisActivity extends AppCompatActivity {
     Button btn_filter;
     Calendar calendar = Calendar.getInstance();
     Locale id = new Locale("in", "ID");
-    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MMMM-YYYY", id);
+    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy", id);
     Date date_min, date_max;
     Context context;
+    FloatingActionButton fabPrint;
+    Query mQuery;
+    Bitmap bitmap;
 
-
-    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +77,7 @@ public class RekamMedisActivity extends AppCompatActivity {
         sampai = findViewById(R.id.tglSampai);
         dari = findViewById(R.id.tglDari);
         btn_filter = findViewById(R.id.filter);
+        fabPrint = findViewById(R.id.fabPrint);
 
         context = this;
 
@@ -70,55 +86,105 @@ public class RekamMedisActivity extends AppCompatActivity {
         reference = FirebaseDatabase.getInstance().getReference();
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
-        getData();
-
-        dari.setOnClickListener(v -> {
+        dari.setOnFocusChangeListener((v, hasFocus) -> {
             DatePickerDialog datePickerDialog = new DatePickerDialog(context, new DatePickerDialog.OnDateSetListener() {
                 @Override
                 public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                     calendar.set(year, month, dayOfMonth);
                     dari.setText(simpleDateFormat.format(calendar.getTime()));
                     date_min = calendar.getTime();
-
-                    String tgl1 = dari.getText().toString();
-                    String tgl2 = sampai.getText().toString();
-                    if (tgl1.isEmpty() && tgl2.isEmpty()) {
-                        btn_filter.setEnabled(false);
-                    } else {
-                        btn_filter.setEnabled(true);
-                    }
                 }
             }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
             datePickerDialog.show();
         });
 
-        sampai.setOnClickListener(v -> {
+        sampai.setOnFocusChangeListener((v, hasFocus) -> {
             DatePickerDialog datePickerDialog = new DatePickerDialog(context, new DatePickerDialog.OnDateSetListener() {
                 @Override
                 public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                     calendar.set(year, month, dayOfMonth);
                     sampai.setText(simpleDateFormat.format(calendar.getTime()));
                     date_max = calendar.getTime();
-
-                    String tgl1 = sampai.getText().toString();
-                    String tgl2 = dari.getText().toString();
-                    if (tgl1.isEmpty() && tgl2.isEmpty()) {
-                        btn_filter.setEnabled(false);
-                    } else {
-                        btn_filter.setEnabled(true);
-                    }
                 }
             }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
             datePickerDialog.show();
         });
 
         btn_filter.setOnClickListener(v -> {
-            //Kodingan Fungsi Filter
+            getData();
+        });
+
+        fabPrint.setOnClickListener(v -> {
+            print();
         });
     }
 
+    private void print() {
+        bitmap = loadBitmapFromView(rvRekamMedis, rvRekamMedis.getWidth(), rvRekamMedis.getHeight());
+        createPdf();
+    }
+
+    public static Bitmap loadBitmapFromView(View v, int width, int height) {
+        Bitmap b = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+        Canvas c = new Canvas(b);
+        v.draw(c);
+
+        return b;
+    }
+
+    private void createPdf() {
+        WindowManager wm = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
+        DisplayMetrics displaymetrics = new DisplayMetrics();
+        this.getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
+        float hight = displaymetrics.heightPixels;
+        float width = displaymetrics.widthPixels;
+
+        int convertHighet = (int) hight, convertWidth = (int) width;
+
+        PdfDocument document = new PdfDocument();
+        PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(convertWidth, convertHighet, 1).create();
+        PdfDocument.Page page = document.startPage(pageInfo);
+
+        Canvas canvas = page.getCanvas();
+
+        Paint paint = new Paint();
+        canvas.drawPaint(paint);
+
+        bitmap = Bitmap.createScaledBitmap(bitmap, convertWidth, convertHighet, true);
+
+        paint.setColor(Color.BLUE);
+        canvas.drawBitmap(bitmap, 0, 0, null);
+        document.finishPage(page);
+
+        File mypath = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "filename.pdf");
+        try {
+            document.writeTo(new FileOutputStream(mypath));
+            document.close();
+            Toast.makeText(this, "Berkas PDF berhasil dibuat", Toast.LENGTH_LONG).show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            Toast.makeText(this, "Something wrong: " + e.toString(), Toast.LENGTH_LONG).show();
+        }
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        getData();
+    }
+
     private void getData() {
-        Query mQuery = reference.child("Rekam Medis");
+        String tgl1 = dari.getText().toString().trim();
+        String tgl2 = sampai.getText().toString().trim();
+
+        if (!tgl1.isEmpty() && !tgl2.isEmpty()) {
+            mQuery = reference.child("Rekam Medis").orderByChild("tanggal").startAt(tgl1).endAt(tgl2);
+        } else {
+            mQuery = reference.child("Rekam Medis");
+        }
+
         mQuery.keepSynced(true);
 
         FirebaseRecyclerAdapter<RekamMedis, ListRekamMedisViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<RekamMedis, ListRekamMedisViewHolder>

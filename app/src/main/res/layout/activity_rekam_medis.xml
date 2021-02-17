@@ -60,6 +60,7 @@
         android:scrollbars="none" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabPrint"
         android:layout_width="130dp"
         android:layout_height="130dp"
         android:layout_alignParentEnd="true"
