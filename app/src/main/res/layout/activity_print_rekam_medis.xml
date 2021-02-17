@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rlPrintRekamMedis"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E9FFE1"
+    android:background="#ffffff"
     tools:context=".PrintRekamMedisActivity">
 
     <LinearLayout
@@ -14,55 +14,55 @@
         android:orientation="horizontal">
 
         <TextView
-            android:gravity="center"
             android:layout_width="0dp"
             android:layout_height="40dp"
+            android:layout_marginTop="8dp"
             android:layout_marginRight="8dp"
             android:layout_weight="1"
+            android:gravity="center"
             android:text="Nama Pasien"
-            android:textSize="16sp"
             android:textColor="@android:color/black"
-            android:layout_marginTop="8dp"/>
+            android:textSize="16sp" />
 
         <TextView
-            android:gravity="center"
             android:layout_width="0dp"
             android:layout_height="40dp"
+            android:layout_marginTop="8dp"
             android:layout_marginRight="8dp"
             android:layout_weight="1"
+            android:gravity="center"
             android:text="Nama Dokter"
-            android:textSize="16sp"
             android:textColor="@android:color/black"
-            android:layout_marginTop="8dp"/>
+            android:textSize="16sp" />
 
         <TextView
-            android:gravity="center"
             android:layout_width="0dp"
             android:layout_height="40dp"
+            android:layout_marginTop="8dp"
             android:layout_marginRight="8dp"
             android:layout_weight="1"
+            android:gravity="center"
             android:text="Tanggal Dibuat"
-            android:textSize="16sp"
             android:textColor="@android:color/black"
-            android:layout_marginTop="8dp"/>
+            android:textSize="16sp" />
 
     </LinearLayout>
 
     <View
         android:id="@+id/view"
-        android:layout_below="@id/linearLayoutRekMedis"
         android:layout_width="match_parent"
-        android:visibility="visible"
         android:layout_height="1dp"
-        android:background="@android:color/black"/>
+        android:layout_below="@id/linearLayoutRekMedis"
+        android:background="@android:color/black"
+        android:visibility="visible" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvPrint"
-        android:layout_below="@id/view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:listitem="@layout/item_print_rekam_medis"
+        android:layout_below="@id/view"
         android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"/>
+        android:layout_marginBottom="5dp"
+        tools:listitem="@layout/item_print_rekam_medis" />
 
 </RelativeLayout>

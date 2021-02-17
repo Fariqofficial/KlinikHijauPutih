@@ -4,24 +4,13 @@ import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.pdf.PdfDocument;
 import android.os.Bundle;
-import android.os.Environment;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -39,9 +28,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -115,57 +101,14 @@ public class RekamMedisActivity extends AppCompatActivity {
         });
 
         fabPrint.setOnClickListener(v -> {
-            print();
+            String tgl1 = dari.getText().toString().trim();
+            String tgl2 = sampai.getText().toString().trim();
+
+            Intent intent = new Intent(getApplicationContext(), PrintRekamMedisActivity.class);
+            intent.putExtra("tgl1", tgl1);
+            intent.putExtra("tgl2", tgl2);
+            startActivity(intent);
         });
-    }
-
-    private void print() {
-        bitmap = loadBitmapFromView(rvRekamMedis, rvRekamMedis.getWidth(), rvRekamMedis.getHeight());
-        createPdf();
-    }
-
-    public static Bitmap loadBitmapFromView(View v, int width, int height) {
-        Bitmap b = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
-        Canvas c = new Canvas(b);
-        v.draw(c);
-
-        return b;
-    }
-
-    private void createPdf() {
-        WindowManager wm = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
-        DisplayMetrics displaymetrics = new DisplayMetrics();
-        this.getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
-        float hight = displaymetrics.heightPixels;
-        float width = displaymetrics.widthPixels;
-
-        int convertHighet = (int) hight, convertWidth = (int) width;
-
-        PdfDocument document = new PdfDocument();
-        PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(convertWidth, convertHighet, 1).create();
-        PdfDocument.Page page = document.startPage(pageInfo);
-
-        Canvas canvas = page.getCanvas();
-
-        Paint paint = new Paint();
-        canvas.drawPaint(paint);
-
-        bitmap = Bitmap.createScaledBitmap(bitmap, convertWidth, convertHighet, true);
-
-        paint.setColor(Color.BLUE);
-        canvas.drawBitmap(bitmap, 0, 0, null);
-        document.finishPage(page);
-
-        File mypath = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "filename.pdf");
-        try {
-            document.writeTo(new FileOutputStream(mypath));
-            document.close();
-            Toast.makeText(this, "Berkas PDF berhasil dibuat", Toast.LENGTH_LONG).show();
-        } catch (IOException e) {
-            e.printStackTrace();
-            Toast.makeText(this, "Something wrong: " + e.toString(), Toast.LENGTH_LONG).show();
-        }
-
     }
 
     @Override
@@ -223,13 +166,10 @@ public class RekamMedisActivity extends AppCompatActivity {
 
                 listRekamMedisViewHolder.setTglDibuat(rekamMedis.getTanggal());
 
-                listRekamMedisViewHolder.mView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(getApplicationContext(), DetailRekamMedis.class);
-                        intent.putExtra("id_rekMedis", rekamMedis.getId_rekMedis());
-                        startActivity(intent);
-                    }
+                listRekamMedisViewHolder.mView.setOnClickListener(v -> {
+                    Intent intent = new Intent(getApplicationContext(), DetailRekamMedis.class);
+                    intent.putExtra("id_rekMedis", rekamMedis.getId_rekMedis());
+                    startActivity(intent);
                 });
             }
         };

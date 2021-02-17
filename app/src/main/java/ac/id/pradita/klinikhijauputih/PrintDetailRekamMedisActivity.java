@@ -23,7 +23,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class PrintDetailRekamMedis extends AppCompatActivity {
+public class PrintDetailRekamMedisActivity extends AppCompatActivity {
     TextView nama_pasien, idRekMedis, idPasien, idDokter, anastesa, diagnosa, terapi, resep, tglResep;
     String m_nama_pasien, m_idRekMedis, m_idPasien, m_idDokter, m_anastesa, m_diagnosa, m_terapi, m_resep, m_tglResep;
     Bitmap bitmap;
