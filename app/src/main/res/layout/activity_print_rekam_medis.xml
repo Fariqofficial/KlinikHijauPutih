@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E9FFE1"
+    tools:context=".PrintRekamMedisActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayoutRekMedis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="8dp"
+            android:layout_weight="1"
+            android:text="Nama Pasien"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="8dp"
+            android:layout_weight="1"
+            android:text="Nama Dokter"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="8dp"
+            android:layout_weight="1"
+            android:text="Tanggal Dibuat"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="8dp"/>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view"
+        android:layout_below="@id/linearLayoutRekMedis"
+        android:layout_width="match_parent"
+        android:visibility="visible"
+        android:layout_height="1dp"
+        android:background="@android:color/black"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvPrint"
+        android:layout_below="@id/view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/item_print_rekam_medis"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"/>
+
+</RelativeLayout>
