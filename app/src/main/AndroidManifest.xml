@@ -14,7 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KlinikHijauPutih">
+
         <activity android:name=".PrintRekamMedisActivity"></activity>
+        <activity android:name=".PrintDetailRekamMedis"></activity>
         <activity android:name=".CheckRoleActivity" />
         <activity android:name=".RekamMedisDokterActivity" />
         <activity android:name=".BuatAkunStaffActivity" />
